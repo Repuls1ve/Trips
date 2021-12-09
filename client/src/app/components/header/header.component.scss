@@ -1,0 +1,84 @@
+@use "src/assets/scss/breakpoints";
+@use "src/assets/scss/colors";
+
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .header-content-desktop,
+  .header-content-mobile {
+    height: 65px;
+    padding: 20px 40px;
+    display: flex;
+    height: inherit;
+
+    .header-logo {
+      flex-basis: 15%;
+
+      .logo {
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    .header-nav {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .nav-link {
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: color 450ms ease-out;
+
+        &:hover {
+          color: colors.$color-hover;
+        }
+      }
+    }
+
+    .header-contact {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-basis: 20%;
+      padding-top: 5px;
+    }
+  }
+
+  .header-content-mobile {
+    padding: 10px;
+    height: 45px;
+
+    .header-contact {
+      flex: 1;
+      justify-content: flex-start;
+
+      @include breakpoints.new(350px) {
+        flex-grow: 1.2;
+      }
+    }
+
+    .header-logo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-menu {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .menu {
+        cursor: pointer;
+        height: 50%;
+        width: auto;
+      }
+    }
+  }
+}

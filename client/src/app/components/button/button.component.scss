@@ -1,0 +1,88 @@
+@use "src/assets/scss/colors";
+
+.decorative-button {
+  position: relative;
+  width: 180px;
+  height: 40px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+
+  .button-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 1.125em;
+    transition: color 250ms ease-out;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .border-container {
+      flex-basis: 40%;
+      height: 100%;
+    }
+
+    .decoration {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      flex-basis: 20%;
+      height: 150%;
+      padding: 0 10px;
+
+      .top-decoration,
+      .bottom-decoration {
+        width: 90%;
+        height: auto;
+      }
+
+      .bottom-decoration {
+        transform: rotate(180deg);
+      }
+    }
+
+    .border-right,
+    .border-left {
+      border-style: solid;
+      border-color: white;
+      border-width: 1px 0;
+    }
+
+    .border-right {
+      border-right: 1px solid white;
+      border-top-right-radius: 60px;
+      border-bottom-right-radius: 60px;
+    }
+
+    .border-left {
+      border-left: 1px solid white;
+      border-top-left-radius: 60px;
+      border-bottom-left-radius: 60px;
+    }
+  }
+}
+
+.common-button {
+  width: 100%;
+  height: 38px;
+  padding: 0 15px;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid colors.$color-primary;
+  border-radius: 60px;
+  font-size: 1.125em;
+}

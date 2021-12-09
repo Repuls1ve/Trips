@@ -1,0 +1,22 @@
+<button *ngIf="variant === 'decorative'" class="decorative-button">
+    <div class="button-text">{{text}}</div>
+    <div class="container">
+        <div class="border-container border-left"></div>
+        <div class="decoration">
+            <img
+            class="top-decoration"
+            src="assets/img/decoration.svg"
+            alt="button-decoration"
+            >
+            <img 
+            class="bottom-decoration"
+            src="assets/img/decoration.svg"
+            alt="button-decoration">
+        </div>
+        <div class="border-container border-right"></div>
+    </div>
+</button>
+
+<button *ngIf="variant === 'common'" class="common-button">
+    {{text}}
+</button>

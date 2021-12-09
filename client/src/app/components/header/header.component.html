@@ -1,0 +1,29 @@
+<header class="header">
+    <div class="header-content-desktop" *ngIf="media.isActive('gt-sm')">
+        <div class="header-logo">
+            <img class="logo" src="assets/img/logo.svg" alt="logo">
+        </div>
+        <nav class="header-nav">
+            <a class="nav-link">Home</a>
+            <a class="nav-link">Luxury packages</a>
+            <a class="nav-link">Book with us</a>
+            <a class="nav-link">Why Lux Trips</a>
+            <a class="nav-link">Contact</a>
+            <a class="nav-link">Client area</a>
+        </nav>
+        <div class="header-contact">
+            <app-button variant="decorative" text="Call me back"></app-button>
+        </div>
+    </div>
+    <div class="header-content-mobile" *ngIf="media.isActive('lt-md')">
+        <div class="header-contact">
+            <app-button text="Call me"></app-button>
+        </div>
+        <div class="header-logo">
+            <img class="logo" src="assets/img/logo.svg" alt="logo">
+        </div>
+        <div class="header-menu">
+            <img class="menu" src="assets/img/menu.svg" alt="menu">
+        </div>
+    </div>
+</header>
