@@ -54,6 +54,7 @@
     height: 45px;
 
     .header-contact {
+      z-index: 10;
       flex: 1;
       justify-content: flex-start;
 
@@ -63,6 +64,7 @@
     }
 
     .header-logo {
+      z-index: 10;
       flex: 1;
       display: flex;
       justify-content: center;
@@ -75,10 +77,36 @@
       align-items: center;
 
       .menu {
+        z-index: 10;
         cursor: pointer;
         height: 50%;
         width: auto;
       }
+    }
+  }
+}
+
+.sidebar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: colors.$color-tertiary;
+
+  .sidebar-nav {
+    margin-top: 70px;
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url("/assets/img/brand-element.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .nav-link {
+      font-size: 1.5rem;
+      font-weight: normal;
     }
   }
 }

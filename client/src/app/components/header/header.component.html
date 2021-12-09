@@ -23,7 +23,23 @@
             <img class="logo" src="assets/img/logo.svg" alt="logo">
         </div>
         <div class="header-menu">
-            <img class="menu" src="assets/img/menu.svg" alt="menu">
+            <img
+            (click)="toggleSidebar()"
+            class="menu" 
+            src="assets/img/menu.svg"
+            alt="menu"
+            >
         </div>
     </div>
 </header>
+
+<div class="sidebar" *ngIf="!sidebarClosed && media.isActive('lt-md')" @slide>
+    <nav class="sidebar-nav">
+        <a class="nav-link">Home</a>
+        <a class="nav-link">Luxury packages</a>
+        <a class="nav-link">Book with us</a>
+        <a class="nav-link">Why Lux Trips</a>
+        <a class="nav-link">Contact</a>
+        <a class="nav-link">Client area</a>
+    </nav>
+</div>
