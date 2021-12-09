@@ -43,3 +43,10 @@
         <a class="nav-link">Client area</a>
     </nav>
 </div>
+
+<div
+class="backdrop"
+(click)="toggleSidebar()"
+*ngIf="!sidebarClosed && media.isActive('lt-md')"
+@backdropFade
+></div>

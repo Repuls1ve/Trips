@@ -19,6 +19,19 @@ import { MediaObserver } from '@angular/flex-layout';
           transform: 'translateY(-100%)'
         }))
       ])
+    ]),
+    trigger('backdropFade', [
+      transition(':enter', [
+        style({
+          opacity: 0
+        }),
+        animate(500)
+      ]),
+      transition(':leave', [
+        animate(350, style({
+          opacity: 0
+        }))
+      ])
     ])
   ]
 })
