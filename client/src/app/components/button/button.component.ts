@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
-type variant = 'common' | 'decorative' | 'decorative-expanded'
+type variant = 'common' | 'decorative' | 'decorative-alternative'
+type theme = 'light' | 'dark'
 
 @Component({
   selector: 'app-button',
@@ -9,6 +10,6 @@ type variant = 'common' | 'decorative' | 'decorative-expanded'
 })
 export class ButtonComponent {
   @Input() variant: variant = 'common'
-  @Input() outlined = false
+  @Input() theme: theme = 'light' 
   @Input() text = ''
 }
