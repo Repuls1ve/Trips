@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-type variant = 'common' | 'decorative' | 'decorative-alternative'
+type variant = 'common' | 'search' | 'decorative' | 'decorative-alternative'
 type theme = 'light' | 'dark'
 
 @Component({

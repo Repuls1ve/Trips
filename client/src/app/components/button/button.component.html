@@ -1,27 +1,31 @@
-<button *ngIf="variant === 'decorative'" class="decorative-button">
-    <div class="button-text">{{text}}</div>
-    <div class="container">
-        <div class="border-container border-left"></div>
-        <div class="decoration">
-            <img
-            class="top-decoration"
-            src="assets/img/decoration.svg"
-            alt="button-decoration"
-            >
-            <img 
-            class="bottom-decoration"
-            src="assets/img/decoration.svg"
-            alt="button-decoration">
+<div [ngSwitch]="variant" class="button-wrapper">
+    <button
+    *ngSwitchCase="'decorative'"
+    class="decorative-button"
+    >
+        <div class="button-text">{{text}}</div>
+        <div class="container">
+            <div class="border-container border-left"></div>
+            <div class="decoration">
+                <img
+                class="top-decoration"
+                src="assets/img/decoration.svg"
+                alt="button-decoration"
+                >
+                <img 
+                class="bottom-decoration"
+                src="assets/img/decoration.svg"
+                alt="button-decoration">
+            </div>
+            <div class="border-container border-right"></div>
         </div>
-        <div class="border-container border-right"></div>
-    </div>
-</button>
+    </button>
 
-<button
-*ngIf="variant === 'decorative-alternative'"
-[class.dark-theme]="theme === 'dark'"
-class="decorative-alternative-button"
->
+    <button
+    *ngSwitchCase="'decorative-alternative'"
+    class="decorative-alternative-button"
+    [class.dark-theme]="theme === 'dark'"
+    >
     <div class="button-text">
         {{text}}
     </div>
@@ -41,8 +45,24 @@ class="decorative-alternative-button"
         </div>
         <div class="border-container border-right"></div>
     </div>
-</button>
+    </button>
 
-<button *ngIf="variant === 'common'" class="common-button">
-    {{text}}
-</button>
+    <button
+    *ngSwitchCase="'search'"
+    class="search-button"
+    >
+        <img
+        class="search-icon"
+        src="assets/img/search.svg"
+        alt="search-icon"
+        >
+        {{text}}
+    </button>
+
+    <button
+    *ngSwitchDefault
+    class="common-button"
+    >
+        {{text}}
+    </button>
+</div>

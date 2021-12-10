@@ -1,0 +1,105 @@
+@use "src/assets/scss/colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+.container {
+  position: relative;
+  width: 100%;
+
+  .decoration {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: -30px;
+
+    .decorative-button {
+      width: 330px;
+
+      @include breakpoints.mobile {
+        width: 90%;
+      }
+
+      @include breakpoints.new(330px) {
+        width: 92.5%;
+      }
+    }
+  }
+
+  .content {
+    padding: 35px 40px;
+    min-height: 75px;
+    background: white;
+    box-shadow: 0px 18px 38px rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .parameter {
+      display: flex;
+      flex-basis: 20%;
+      align-items: center;
+
+      @include breakpoints.new(750px) {
+        flex-basis: 50%;
+      }
+    }
+
+    .find-button {
+      flex-basis: 175px;
+
+      @include breakpoints.new(1130px) {
+        flex-basis: 20%;
+      }
+    }
+
+    @include breakpoints.tablet {
+      padding-top: 40px;
+
+      .parameter {
+        margin-bottom: 25px;
+      }
+
+      .find-button {
+        flex-basis: 100%;
+      }
+    }
+
+    @include breakpoints.mobile {
+      .destination,
+      .travel-type {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+
+.option {
+  font-family: typography.$font-secondary;
+  font-weight: normal;
+  font-size: 1.125em;
+  color: colors.$color-secondary;
+}
+
+.select {
+  text-align: left;
+  border: none;
+  background: transparent;
+  text-transform: none;
+  font-family: typography.$font-secondary;
+  font-weight: bold;
+  font-size: 1.125em;
+}
+
+.parameter-icon {
+  margin: 4px 7px 0 0;
+  align-self: flex-start;
+}
+
+.destination-icon {
+  @include breakpoints.tablet {
+    margin: 4px 9px 0 5px;
+  }
+}
