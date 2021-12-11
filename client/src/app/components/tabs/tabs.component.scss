@@ -1,0 +1,32 @@
+@use "src/assets/scss/colors";
+
+.container {
+  width: 100%;
+  overflow: auto;
+
+  .tabs {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+
+    .tab {
+      color: colors.$color-secondary;
+      height: inherit;
+      font-size: 1.5rem;
+      font-weight: normal;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 0 0 150px;
+      text-align: center;
+      cursor: pointer;
+
+      &.active {
+        color: colors.$color-primary;
+      }
+    }
+  }
+}

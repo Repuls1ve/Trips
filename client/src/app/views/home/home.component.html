@@ -5,3 +5,23 @@
         <app-search></app-search>
     </div>
 </section>
+<section class="experiences">
+    <h2 class="title">
+        <img
+        class="brand-element"
+        src="assets/img/brand-element-2.svg"
+        alt="brand-element"
+        >
+        Top rated <br> experiences
+    </h2>
+    <div class="content">
+        <app-tabs>
+            <app-tab
+            *ngFor="let tab of tabs"
+            [title]="tab.title"
+            >
+            Content of {{tab.title}}
+            </app-tab>
+        </app-tabs>
+    </div>
+</section>

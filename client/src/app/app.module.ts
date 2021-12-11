@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './views/home/home.component';
 import { SearchComponent } from './components/search/search.component';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { TabComponent } from './components/tab/tab.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { SearchComponent } from './components/search/search.component';
     ButtonComponent,
     HeaderComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    TabsComponent,
+    TabComponent
   ],
   imports: [
     BrowserModule,
