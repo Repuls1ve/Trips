@@ -1,0 +1,7 @@
+<div class="rating-scale">
+    <img
+    *ngFor="let mark of marks"
+    class="scale-mark"
+    [src]="'/assets/img/' + (mark ? 'rating-mark-filled' : 'rating-mark') + '.svg'"
+    >
+</div>

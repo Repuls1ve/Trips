@@ -1,0 +1,84 @@
+@use "src/assets/scss/typography";
+
+.tour-card-common {
+  background-image: url("/assets/img/tour-card-example.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  max-width: 350px;
+  height: 560px;
+  border-radius: 10px;
+
+  .container {
+    display: flex;
+    padding: 35px;
+    height: calc(100% - 70px);
+
+    .content {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .location {
+        display: flex;
+        margin-bottom: 5px;
+
+        .icon {
+          margin-right: 5px;
+        }
+
+        .destination {
+          font-family: typography.$font-secondary;
+          font-size: 0.75rem;
+          font-weight: normal;
+          color: white;
+        }
+      }
+
+      .title {
+        color: white;
+        font-weight: normal;
+        font-size: 2rem;
+        margin-bottom: 25px;
+      }
+
+      .price {
+        .from {
+          font-family: typography.$font-secondary;
+          font-weight: normal;
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          color: white;
+        }
+
+        .value {
+          font-size: 1.5rem;
+          color: white;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .score {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      flex-basis: 30px;
+      height: 100%;
+
+      .rating {
+        color: white;
+        font-family: typography.$font-secondary;
+        font-weight: normal;
+        font-size: 0.75rem;
+      }
+
+      .rating-scale {
+        width: 12px;
+      }
+    }
+  }
+}

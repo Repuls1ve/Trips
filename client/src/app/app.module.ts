@@ -11,6 +11,8 @@ import { HomeComponent } from './views/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tab/tab.component';
+import { TourCardComponent } from './components/tour-card/tour-card.component';
+import { RatingScaleComponent } from './components/rating-scale/rating-scale.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { TabComponent } from './components/tab/tab.component';
     HomeComponent,
     SearchComponent,
     TabsComponent,
-    TabComponent
+    TabComponent,
+    TourCardComponent,
+    RatingScaleComponent
   ],
   imports: [
     BrowserModule,

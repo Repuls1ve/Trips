@@ -1,0 +1,30 @@
+<div [ngSwitch]="variant" class="tour-card">
+    <div
+    ngSwitchCaseDefault
+    class="tour-card-common"
+    >
+        <div class="container">
+            <div class="content">
+                <div class="location">
+                    <img
+                    class="icon"
+                    src="/assets/img/location.svg"
+                    alt="location"
+                    >
+                    <p class="destination">Austria</p>
+                </div>
+                <h3 class="title">Winter Park Ski Holiday</h3>
+                <div class="price">
+                    <p class="from">From</p>
+                    <p class="value">€ 1490</p>
+                </div>
+            </div>
+            <div class="score">
+                <p class="rating">4.0</p>
+                <div class="rating-scale">
+                    <app-rating-scale [rating]="4.0"></app-rating-scale>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
