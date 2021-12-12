@@ -1,0 +1,12 @@
+<div class="carousel">
+    <div class="carousel-items">
+        <ng-content></ng-content>
+    </div>
+    <div class="indicators" *ngIf="media.isActive('lt-sm')">
+        <div
+        *ngFor="let item of items"
+        class="indicator"
+        [class.item-visible]="item.visible"
+        ></div>
+    </div>
+</div>

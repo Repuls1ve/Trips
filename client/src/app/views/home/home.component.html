@@ -20,7 +20,17 @@
             *ngFor="let tab of tabs"
             [title]="tab.title"
             >
-            <app-tour-card></app-tour-card>
+            <app-carousel>
+                <app-carousel-item>
+                    <app-tour-card></app-tour-card>
+                </app-carousel-item>
+                <app-carousel-item>
+                    <app-tour-card></app-tour-card>
+                </app-carousel-item>
+                <app-carousel-item>
+                    <app-tour-card></app-tour-card>
+                </app-carousel-item>
+            </app-carousel>
             </app-tab>
         </app-tabs>
     </div>

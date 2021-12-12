@@ -13,6 +13,9 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tab/tab.component';
 import { TourCardComponent } from './components/tour-card/tour-card.component';
 import { RatingScaleComponent } from './components/rating-scale/rating-scale.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselItemComponent } from './components/carousel-item/carousel-item.component';
+import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { RatingScaleComponent } from './components/rating-scale/rating-scale.com
     TabsComponent,
     TabComponent,
     TourCardComponent,
-    RatingScaleComponent
+    RatingScaleComponent,
+    CarouselComponent,
+    CarouselItemComponent,
+    ObserveVisibilityDirective
   ],
   imports: [
     BrowserModule,
