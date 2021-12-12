@@ -9,6 +9,7 @@
     list-style: none;
     justify-content: space-between;
     align-items: center;
+    gap: 50px;
     height: 50px;
 
     .tab {
@@ -20,7 +21,7 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      flex: 0 0 150px;
+      flex: 0 0 auto;
       text-align: center;
       cursor: pointer;
 
