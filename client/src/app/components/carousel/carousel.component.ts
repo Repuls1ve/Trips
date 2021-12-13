@@ -9,5 +9,11 @@ import { CarouselItemComponent } from '../carousel-item/carousel-item.component'
 })
 export class CarouselComponent {
   @ContentChildren(CarouselItemComponent) items!: QueryList<CarouselItemComponent>
+
   constructor(public media: MediaObserver) {}
+
+  scrollTo(item: CarouselItemComponent) {
+    const element = item.elementRef.nativeElement as HTMLElement
+    element.scrollIntoView({behavior: 'smooth'})   
+  }
 }
