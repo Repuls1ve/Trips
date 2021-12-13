@@ -1,7 +1,14 @@
 <div class="carousel">
-    <div class="carousel-items">
+    <div class="carousel-items" [class.no-overflow]="media.isActive('gt-sm')">
         <ng-content></ng-content>
     </div>
+    <button class="next-button" (click)="scrollToNext()">
+        <img
+        class="next-arrow"
+        src="/assets/img/arrow.svg"
+        alt="button-arrow"
+        >
+    </button>
     <div class="indicators" *ngIf="media.isActive('lt-sm')">
         <div
         *ngFor="let item of items"

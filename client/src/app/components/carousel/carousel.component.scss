@@ -1,12 +1,32 @@
 @use "src/assets/scss/colors";
 
 .carousel {
+  position: relative;
   width: 100%;
 
   .carousel-items {
     overflow: auto;
     display: flex;
     gap: 30px;
+
+    &.no-overflow {
+      overflow: hidden;
+    }
+  }
+
+  .next-button {
+    position: absolute;
+    top: calc(50% - 75px);
+    right: 15px;
+    width: 75px;
+    height: 75px;
+    background: colors.$color-secondary;
+    border: none;
+    transform: rotate(45deg);
+
+    .next-arrow {
+      transform: rotate(-45deg);
+    }
   }
 
   .indicators {

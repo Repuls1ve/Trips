@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList, ViewChildren } from '@angular/core';
+import { Component, ContentChildren, QueryList } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
 import { CarouselItemComponent } from '../carousel-item/carousel-item.component';
 
@@ -12,8 +12,27 @@ export class CarouselComponent {
 
   constructor(public media: MediaObserver) {}
 
-  scrollTo(item: CarouselItemComponent) {
+  scrollTo(item: CarouselItemComponent): void {
     const element = item.elementRef.nativeElement as HTMLElement
     element.scrollIntoView({behavior: 'smooth'})   
+  }
+
+  scrollToNext(): void {
+    let currentItem: CarouselItemComponent | undefined 
+    let currentIndex: number | undefined
+
+    this.items.forEach((item, index) => {
+      if (item.visible) {
+        currentItem = item
+        currentIndex = index
+      }
+    })
+
+    if (!currentItem || currentItem === this.items.last) {
+      return this.scrollTo(this.items.first)
+    }
+
+    let nextItem = this.items.get(currentIndex! + 1)
+    this.scrollTo(nextItem!)
   }
 }
