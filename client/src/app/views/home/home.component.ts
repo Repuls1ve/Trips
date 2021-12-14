@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MediaObserver } from '@angular/flex-layout';
 
 
 @Component({
@@ -7,7 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  //Replace the test data with the data received from the server
+  constructor(public media: MediaObserver) {}
+  
   readonly tabs = [
     {
       title: "World"

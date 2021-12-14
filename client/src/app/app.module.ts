@@ -16,6 +16,7 @@ import { RatingScaleComponent } from './components/rating-scale/rating-scale.com
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CarouselItemComponent } from './components/carousel-item/carousel-item.component';
 import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
+import { PackageCardComponent } from './components/package-card/package-card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ObserveVisibilityDirective } from './directives/observe-visibility.dire
     RatingScaleComponent,
     CarouselComponent,
     CarouselItemComponent,
-    ObserveVisibilityDirective
+    ObserveVisibilityDirective,
+    PackageCardComponent
   ],
   imports: [
     BrowserModule,

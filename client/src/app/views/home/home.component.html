@@ -36,14 +36,52 @@
                 <app-carousel-item>
                     <app-tour-card></app-tour-card>
                 </app-carousel-item>
-                <app-carousel-item>
-                    <app-tour-card></app-tour-card>
-                </app-carousel-item>
-                <app-carousel-item>
-                    <app-tour-card></app-tour-card>
-                </app-carousel-item>
             </app-carousel>
             </app-tab>
         </app-tabs>
+    </div>
+</section>
+<section class="luxury-packages">
+    <div class="content-desktop" *ngIf="media.isActive('gt-sm')">
+        <div class="column">
+            <div class="heading">
+                <h2 class="title">Luxury packages</h2>
+                <div class="view-all">
+                    <app-button
+                    text="View all"
+                    ></app-button>
+                </div>
+            </div>
+            <app-package-card></app-package-card>
+        </div>
+        <div class="column">
+            <app-package-card></app-package-card>
+            <app-package-card></app-package-card>
+        </div>
+        <div class="column">
+            <app-package-card></app-package-card>
+            <app-package-card></app-package-card>
+        </div>
+    </div>
+    <div class="content-mobile" *ngIf="media.isActive('lt-md')">
+        <div class="heading">
+            <h2 class="title">Luxury packages</h2>
+            <div class="view-all">
+                <app-button
+                text="View all"
+                ></app-button>
+            </div>
+        </div>
+        <app-carousel>
+            <app-carousel-item>
+                <app-package-card></app-package-card>
+            </app-carousel-item>
+            <app-carousel-item>
+                <app-package-card></app-package-card>
+            </app-carousel-item>
+            <app-carousel-item>
+                <app-package-card></app-package-card>
+            </app-carousel-item>
+        </app-carousel>
     </div>
 </section>
