@@ -21,7 +21,7 @@ export interface IJourneyInfo {
   disadvantages: string[]
 }
 
-export type TravelType = 'Adventure Travel' | 'Luxury Travel' | 'Travel With Group' | 'Family Travel' | 'Solo Travel'
+export type TravelType = 'Adventure Travel' | 'Business Travel' | 'Travel With Group' | 'Family Travel' | 'Solo Travel'
 export type TravelContinent =  'Africa' | 'Asia' | 'Europe' | 'North America' | 'South America' | 'Antarctica' | 'Australia'
  
 export interface IJourneyPrices {

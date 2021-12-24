@@ -1,9 +1,11 @@
 import { IJourneyInfo } from '../interfaces/journey.interface';
 import { JourneyDocument } from '../schemas/journey.schema';
 
-export type IRatedJourneys = IRatedJourney[]
-
-export interface IRatedJourney {
+export interface IRatedJourneys {
   continent: IJourneyInfo['continent']
   journeys: JourneyDocument[]
+}
+
+export interface IRatedJourneysStats {
+  continents: IJourneyInfo['continent'][]
 }

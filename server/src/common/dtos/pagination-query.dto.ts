@@ -1,9 +1,9 @@
 import { Type } from 'class-transformer'
-import { IsNumber, IsOptional, Min } from 'class-validator'
+import { IsNumber, IsOptional, IsPositive, Min } from 'class-validator'
 
 export class PaginationQueryDto {
   @IsNumber()
-  @Min(0)
+  @IsPositive()
   @IsOptional()
   @Type(() => Number)
   limit: number
