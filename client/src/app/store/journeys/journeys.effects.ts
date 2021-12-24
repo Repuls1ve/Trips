@@ -1,0 +1,37 @@
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, map, of, switchMap } from 'rxjs';
+import { JourneysService } from 'src/app/services/journeys.service';
+import { loadJourneys, loadJourneysFailure, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadJourneysSuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './journeys.actions';
+
+@Injectable()
+export class JourneysEffects {
+  constructor(
+    private readonly actions$: Actions, 
+    private readonly journeys: JourneysService
+  ) {}
+
+  loadJourneys$ = createEffect(() => this.actions$.pipe(
+    ofType(loadJourneys),
+    switchMap(payload => this.journeys.getJourneys(payload).pipe(
+      map(data => loadJourneysSuccess({data})),
+      catchError(error => of(loadJourneysFailure(error)))
+    ))
+  ))
+
+  loadJourneysStats$ = createEffect(() => this.actions$.pipe(
+    ofType(loadJourneysStats),
+    switchMap(() => this.journeys.getJourneysStats().pipe(
+      map(data => loadJourneysStatsSuccess(data)),
+      catchError(error => of(loadJourneysStatsFailure(error)))
+    ))
+  ))
+
+  loadRatedJourneys$ = createEffect(() => this.actions$.pipe(
+    ofType(loadRatedJourneys),
+    switchMap(payload => this.journeys.getRatedJourneys(payload).pipe(
+      map(data => loadRatedJourneysSuccess(data)),
+      catchError(error => of(loadRatedJourneysFailure(error)))
+    ))
+  ))
+}

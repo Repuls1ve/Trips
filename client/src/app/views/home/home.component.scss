@@ -103,6 +103,49 @@
   .content {
     width: 100%;
   }
+
+  .skeleton-loader {
+    display: flex;
+    flex-direction: column;
+
+    .loader-heading {
+      display: flex;
+      overflow: hidden;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .loader-body {
+      display: flex;
+      overflow: hidden;
+      gap: 20px;
+    }
+
+    .loader-rect {
+      min-width: 100px;
+      flex: 1;
+      height: 45px;
+      border-radius: 5px;
+      animation: pulse 1s infinite ease-in-out;
+
+      @keyframes pulse {
+        0% {
+          background-color: rgba(165, 165, 165, 0.1);
+        }
+        50% {
+          background-color: rgba(165, 165, 165, 0.25);
+        }
+        100% {
+          background-color: rgba(165, 165, 165, 0.1);
+        }
+      }
+
+      &.card {
+        min-width: 350px;
+        height: 560px;
+      }
+    }
+  }
 }
 
 .luxury-packages {

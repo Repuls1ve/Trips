@@ -1,3 +1,19 @@
+export interface IRatedJourneysQuery {
+  continent: IRatedJourneys['continent']
+  limit?: number
+}
+
+export interface IJourneysQuery {
+  limit?: number
+  offset?: number
+}
+
+export interface IJourneysError {
+  statusCode: number
+  message: string[]
+  error: string
+}
+
 export interface IRatedJourneys {
   continent: IJourneyInfo['continent']
   journeys: IJourney[]
@@ -8,6 +24,7 @@ export interface IRatedJourneysStats {
 }
 
 export interface IJourney {
+  _id: string
   info: IJourneyInfo
   plan: IJourneyPlan
   location: IJourneyLocation

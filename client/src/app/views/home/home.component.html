@@ -12,33 +12,56 @@
         src="assets/img/brand-element-2.svg"
         alt="brand-element"
         >
-        Top rated <br> experiences
+        Top rated <br> experiences 
     </h2>
     <div class="content">
-        <app-tabs>
-            <app-tab
-            *ngFor="let tab of tabs"
-            [title]="tab.title"
+        <ng-container
+        *ngIf="{
+          stats: {
+            status: (statsStatus$ | async),
+            data: (statsData$ | async),
+            error: (statsError$ | async)
+          },
+          rated: {
+            status: (journeysRatedStatus$ | async),
+            data: (journeysRatedData$ | async),
+            error: (journeysRatedError$ | async)
+          }
+        } as state"
+        >
+            <app-tabs
+            *ngIf="state.stats.status == 'success'; else loader"
+            (onTabSelect)="onTabSelect($event)"
             >
-            <app-carousel>
-                <app-carousel-item>
-                    <app-tour-card></app-tour-card>
-                </app-carousel-item>
-                <app-carousel-item>
-                    <app-tour-card></app-tour-card>
-                </app-carousel-item>
-                <app-carousel-item>
-                    <app-tour-card></app-tour-card>
-                </app-carousel-item>
-                <app-carousel-item>
-                    <app-tour-card></app-tour-card>
-                </app-carousel-item>
-                <app-carousel-item>
-                    <app-tour-card></app-tour-card>
-                </app-carousel-item>
-            </app-carousel>
-            </app-tab>
-        </app-tabs>
+                <app-tab
+                *ngFor="let continent of state.stats.data!.continents"
+                [title]="continent"
+                >
+                <app-carousel *ngIf="state.rated.status == 'success'; else loader">
+                    <app-carousel-item *ngFor="let journey of getJourneysList(state.rated.data!, continent)?.journeys">
+                        <app-tour-card></app-tour-card>
+                    </app-carousel-item>
+                </app-carousel>
+                </app-tab>
+            </app-tabs>
+            <ng-template #loader>
+                <div class="skeleton-loader">
+                    <div class="loader-heading" *ngIf="state.stats.status != 'success'">
+                        <div class="loader-rect"></div>
+                        <div class="loader-rect"></div>
+                        <div class="loader-rect"></div>
+                        <div class="loader-rect"></div>
+                        <div class="loader-rect"></div>
+                        <div class="loader-rect"></div>
+                    </div>
+                    <div class="loader-body">
+                        <div class="loader-rect card"></div>
+                        <div class="loader-rect card"></div>
+                        <div class="loader-rect card"></div>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
     </div>
 </section>
 <section class="luxury-packages">
