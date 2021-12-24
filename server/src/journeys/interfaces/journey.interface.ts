@@ -9,6 +9,9 @@ export interface IJourney {
 
 export interface IJourneyInfo {
   title: string
+  continent: string
+  travel: TravelType
+  travellers: number
   photo: IJourneyPhoto
   prices: IJourneyPrices
   description: string
@@ -17,6 +20,8 @@ export interface IJourneyInfo {
   advantages: string[]
   disadvantages: string[]
 }
+
+export type TravelType = 'Adventure Travel' | 'Luxury Travel' | 'Travel With Group' | 'Family Travel' | 'Solo Travel'
 
 export interface IJourneyPrices {
   EUR: number
