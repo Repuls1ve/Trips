@@ -9,7 +9,7 @@ export interface IJourney {
 
 export interface IJourneyInfo {
   title: string
-  continent: string
+  continent: TravelContinent
   travel: TravelType
   travellers: number
   photo: IJourneyPhoto
@@ -22,7 +22,8 @@ export interface IJourneyInfo {
 }
 
 export type TravelType = 'Adventure Travel' | 'Luxury Travel' | 'Travel With Group' | 'Family Travel' | 'Solo Travel'
-
+export type TravelContinent =  'Africa' | 'Asia' | 'Europe' | 'North America' | 'South America' | 'Antarctica' | 'Australia'
+ 
 export interface IJourneyPrices {
   EUR: number
   USD: number
