@@ -8,6 +8,7 @@
     overflow: auto;
     display: flex;
     gap: 30px;
+    scroll-behavior: smooth;
 
     &.no-overflow {
       overflow: hidden;

@@ -14,7 +14,7 @@ export class CarouselComponent {
 
   scrollTo(item: CarouselItemComponent): void {
     const element = item.elementRef.nativeElement as HTMLElement
-    element.scrollIntoView({behavior: 'smooth'})   
+    element.scrollIntoView({block: 'nearest'})   
   }
 
   scrollToNext(): void {
