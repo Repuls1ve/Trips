@@ -4,47 +4,17 @@ import { JourneysState } from './journeys.reducer';
 
 const journeysFeature = (state: AppState) => state.journeys
 
-export const selectJourneysStatsData = createSelector(
+export const selectJourneysStats = createSelector(
   journeysFeature,
-  (state: JourneysState) => state.stats.data
+  (state: JourneysState) => state.stats
 )
 
-export const selectJourneysStatsStatus = createSelector(
+export const selectRatedJourneys = createSelector(
   journeysFeature,
-  (state: JourneysState) => state.stats.status
+  (state: JourneysState) => state.rated
 )
 
-export const selectJourneysStatsError = createSelector(
+export const selectJourneys = createSelector(
   journeysFeature,
-  (state: JourneysState) => state.stats.error
-)
-
-export const selectJourneysRatedData = createSelector(
-  journeysFeature,
-  (state: JourneysState) => state.rated.data
-)
-
-export const selectJourneysRatedStatus = createSelector(
-  journeysFeature,
-  (state: JourneysState) => state.rated.status
-)
-
-export const selectJourneysRatedError = createSelector(
-  journeysFeature,
-  (state: JourneysState) => state.rated.error
-)
-
-export const selectJourneysData = createSelector(
-  journeysFeature,
-  (state: JourneysState) => state.journeys.data
-)
-
-export const selectJourneysStatus = createSelector(
-  journeysFeature,
-  (state: JourneysState) => state.journeys.status
-)
-
-export const selectJourneysError = createSelector(
-  journeysFeature,
-  (state: JourneysState) => state.journeys.error
+  (state: JourneysState) => state.journeys
 )

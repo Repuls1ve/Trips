@@ -3,6 +3,11 @@
     ngSwitchCaseDefault
     class="tour-card-common"
     >
+        <img
+        [src]="journey.info.photo.source"
+        [alt]="journey.info.photo.alt"
+        class="background-photo"
+        >
         <div class="container">
             <div class="content">
                 <div class="location">
@@ -11,12 +16,12 @@
                     src="/assets/img/location.svg"
                     alt="location"
                     >
-                    <p class="destination">Austria</p>
+                    <p class="destination">{{ journey.info.destination }}</p>
                 </div>
-                <h3 class="title">Winter Park Ski Holiday</h3>
+                <h3 class="title">{{ journey.info.title }}</h3>
                 <div class="price">
                     <p class="from">From</p>
-                    <p class="value">€ 1490</p>
+                    <p class="value">€ {{ journey.info.prices.EUR }}</p>
                 </div>
             </div>
             <div class="score">

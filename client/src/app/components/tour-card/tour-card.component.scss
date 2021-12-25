@@ -1,12 +1,19 @@
 @use "src/assets/scss/typography";
 
 .tour-card-common {
-  background-image: url("/assets/img/tour-card-example.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
   width: 350px;
   height: 560px;
-  border-radius: 10px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+
+  .background-photo {
+    position: absolute;
+    transform: translateZ(-10px);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
 
   .container {
     display: flex;

@@ -17,47 +17,32 @@
     <div class="content">
         <ng-container
         *ngIf="{
-          stats: {
-            status: (statsStatus$ | async),
-            data: (statsData$ | async),
-            error: (statsError$ | async)
-          },
-          rated: {
-            status: (journeysRatedStatus$ | async),
-            data: (journeysRatedData$ | async),
-            error: (journeysRatedError$ | async)
-          }
+          stats: stats$ | async,
+          journeys: journeys$ | async
         } as state"
         >
             <app-tabs
-            *ngIf="state.stats.status == 'success'; else loader"
+            *ngIf="state.stats?.status == 'success'; else loader"
             (onTabSelect)="onTabSelect($event)"
             >
                 <app-tab
-                *ngFor="let continent of state.stats.data!.continents"
+                *ngFor="let continent of state.stats?.data!.continents"
                 [title]="continent"
                 >
-                <app-carousel *ngIf="state.rated.status == 'success'; else loader">
-                    <app-carousel-item *ngFor="let journey of getJourneysList(state.rated.data!, continent)?.journeys">
-                        <app-tour-card></app-tour-card>
+                <app-carousel *ngIf="state.journeys?.status == 'success'; else loader">
+                    <app-carousel-item *ngFor="let journey of selectJourneys(state.journeys?.data!, continent)?.journeys">
+                        <app-tour-card [journey]="journey"></app-tour-card>
                     </app-carousel-item>
                 </app-carousel>
                 </app-tab>
             </app-tabs>
             <ng-template #loader>
                 <div class="skeleton-loader">
-                    <div class="loader-heading" *ngIf="state.stats.status != 'success'">
-                        <div class="loader-rect"></div>
-                        <div class="loader-rect"></div>
-                        <div class="loader-rect"></div>
-                        <div class="loader-rect"></div>
-                        <div class="loader-rect"></div>
-                        <div class="loader-rect"></div>
+                    <div class="loader-heading" *ngIf="state.stats?.status != 'success'">
+                        <div class="loader-rect" *ngFor="let rect of [].constructor(6)"></div>
                     </div>
                     <div class="loader-body">
-                        <div class="loader-rect card"></div>
-                        <div class="loader-rect card"></div>
-                        <div class="loader-rect card"></div>
+                        <div class="loader-rect card" *ngFor="let card of [].constructor(3)"></div>
                     </div>
                 </div>
             </ng-template>

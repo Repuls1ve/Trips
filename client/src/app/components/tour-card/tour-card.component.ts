@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IJourney } from 'src/app/models/journey.model';
 
 type variant = 'common' | 'expanded'
 
@@ -8,5 +9,6 @@ type variant = 'common' | 'expanded'
   styleUrls: ['./tour-card.component.scss']
 })
 export class TourCardComponent {
+  @Input() journey!: IJourney
   @Input() variant: variant = 'common'
 }

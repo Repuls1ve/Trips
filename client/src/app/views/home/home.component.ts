@@ -5,7 +5,7 @@ import { TabComponent } from 'src/app/components/tab/tab.component';
 import { IRatedJourneys, TravelContinent } from 'src/app/models/journey.model';
 import { AppState } from 'src/app/store/app.state';
 import { loadJourneysStats, loadRatedJourneys } from 'src/app/store/journeys/journeys.actions';
-import { selectJourneysRatedData, selectJourneysRatedError, selectJourneysRatedStatus, selectJourneysStatsData, selectJourneysStatsError, selectJourneysStatsStatus } from 'src/app/store/journeys/journeys.selectors';
+import { selectJourneysStats, selectRatedJourneys } from 'src/app/store/journeys/journeys.selectors';
 
 
 @Component({
@@ -14,13 +14,8 @@ import { selectJourneysRatedData, selectJourneysRatedError, selectJourneysRatedS
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  statsData$ = this.store.select(selectJourneysStatsData)
-  statsStatus$ = this.store.select(selectJourneysStatsStatus)
-  statsError$ = this.store.select(selectJourneysStatsError)
-
-  journeysRatedData$ = this.store.select(selectJourneysRatedData)
-  journeysRatedStatus$ = this.store.select(selectJourneysRatedStatus)
-  journeysRatedError$ = this.store.select(selectJourneysRatedError)
+  readonly stats$ = this.store.select(selectJourneysStats)
+  readonly journeys$ = this.store.select(selectRatedJourneys)
 
   constructor(
     public readonly media: MediaObserver,
@@ -38,7 +33,7 @@ export class HomeComponent implements OnInit {
     }))
   }
 
-  getJourneysList(data: IRatedJourneys[], continent: TravelContinent): IRatedJourneys | undefined {
+  selectJourneys(data: IRatedJourneys[], continent: TravelContinent): IRatedJourneys | undefined {
     return data.find(journeys => journeys.continent === continent)
   }
 }

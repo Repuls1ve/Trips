@@ -1,5 +1,9 @@
 import { JourneysState } from './journeys/journeys.reducer';
 
+export enum Features {
+  Journeys = 'journeys'
+}
+
 export interface AppState {
-  journeys: JourneysState
+  [Features.Journeys]: JourneysState
 }

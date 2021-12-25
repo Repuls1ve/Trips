@@ -27,6 +27,7 @@
 
       &.active {
         color: colors.$color-primary;
+        pointer-events: none;
       }
     }
   }
