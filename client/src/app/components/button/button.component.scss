@@ -85,6 +85,11 @@
   border: 1px solid colors.$color-primary;
   border-radius: 60px;
   font-size: 1.125em;
+
+  &.light-theme {
+    background: white;
+    border: none;
+  }
 }
 
 .decorative-alternative-button {

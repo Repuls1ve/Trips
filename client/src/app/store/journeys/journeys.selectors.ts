@@ -18,3 +18,8 @@ export const selectJourneys = createSelector(
   journeysFeature,
   (state: JourneysState) => state.journeys
 )
+
+export const selectJourney = createSelector(
+  journeysFeature,
+  (state: JourneysState) => state.journey
+)

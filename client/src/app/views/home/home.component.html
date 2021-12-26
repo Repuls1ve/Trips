@@ -31,7 +31,12 @@
                 >
                 <app-carousel *ngIf="state.journeys?.status == 'success'; else loader">
                     <app-carousel-item *ngFor="let journey of selectJourneys(state.journeys?.data!, continent)?.journeys">
-                        <app-tour-card [journey]="journey"></app-tour-card>
+                        <div class="card">
+                            <app-tour-card
+                            [journey]="journey"
+                            (click)="onJourneyClick(journey)"
+                            ></app-tour-card>
+                        </div>
                     </app-carousel-item>
                 </app-carousel>
                 </app-tab>
@@ -57,6 +62,7 @@
                 <div class="view-all">
                     <app-button
                     text="View all"
+                    theme="dark"
                     ></app-button>
                 </div>
             </div>

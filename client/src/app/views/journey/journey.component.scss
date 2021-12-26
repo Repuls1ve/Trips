@@ -1,0 +1,88 @@
+@use "src/assets/scss/colors";
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+.journey {
+  padding: 115px 7% 100px;
+  background: url("/assets/img/bg-top-inner.png") top no-repeat,
+    linear-gradient(
+      360deg,
+      rgba(226, 211, 206, 0) 0%,
+      rgba(226, 211, 206, 0.71) 0%,
+      colors.$color-tertiary 50%
+    );
+  background-size: 100% 250px, 100%;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      font-size: 3.75rem;
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+
+    .card-wrapper {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+  }
+
+  .content {
+    .tab-content {
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 2.5% 7.5%;
+      width: 100%;
+      background: white;
+      border-radius: 10px;
+
+      .tips {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+          font-size: 2.5rem;
+          text-transform: capitalize;
+          font-weight: normal;
+        }
+
+        .tip {
+          display: flex;
+          box-sizing: border-box;
+          justify-content: space-between;
+          border-bottom: 1px solid colors.$color-tertiary;
+          padding: 25px 0;
+
+          @include breakpoints.tablet {
+            flex-direction: column;
+          }
+
+          .name {
+            text-align: left;
+            font-size: 2.5rem;
+            font-weight: normal;
+            flex-basis: 25%;
+            padding-right: 20px;
+            word-break: break-word;
+          }
+
+          .description {
+            font-size: 1.125rem;
+            font-family: typography.$font-secondary;
+            font-weight: normal;
+            flex-basis: 70%;
+            line-height: 36px;
+          }
+        }
+
+        .tip:nth-last-child(1) {
+          border: none;
+        }
+      }
+    }
+  }
+}

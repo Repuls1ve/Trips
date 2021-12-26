@@ -61,6 +61,7 @@
 
     <button
     *ngSwitchDefault
+    [class.light-theme]="theme === 'light'"
     class="common-button"
     >
         {{text}}

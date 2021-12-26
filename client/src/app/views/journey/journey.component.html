@@ -1,0 +1,52 @@
+<section class="journey">
+    <ng-container *ngIf="journey$ | async as journey">
+      <div class="heading" *ngIf="journey.status == 'success'; else loader">
+        <h1 class="title">{{ journey.data.info.package }}</h1>
+        <div class="card-wrapper">
+          <app-tour-card
+          [journey]="journey.data"
+          [variant]="media.isActive('lt-sm') ? 'common' : 'expanded'"
+          ></app-tour-card>
+        </div>
+      </div>
+      <div class="content" *ngIf="journey.status == 'success'; else loader">
+        <app-tabs>
+          <app-tab
+          *ngFor="let tab of tabs"
+          [title]="tab.name"
+          >
+          <div [ngSwitch]="tab.name" class="tab-content">
+            <div *ngSwitchCase="'Information'" class="information">
+              Information
+            </div>
+            <div *ngSwitchCase="'Luxury Tour Plan'" class="tour-plan">
+              Luxury Tour Plan
+            </div>
+            <div *ngSwitchCase="'Location'" class="location">
+              Location
+            </div>
+            <div *ngSwitchCase="'Travel Tips'" class="tips">
+              <h2 class="title">Travel Tips</h2>
+              <div class="tip" *ngFor="let tip of journey.data.tips">
+                <h2 class="name">{{ tip.title }}</h2>
+                <p class="description">{{ tip.description }}</p>
+              </div>
+            </div>
+            <div *ngSwitchCase="'Gallery'" class="gallery">
+              Gallery
+            </div>
+            <div *ngSwitchCase="'Reviews'" class="reviews">
+              Reviews
+            </div>
+            <div *ngSwitchCase="'Cancellation policy'" class="cancellation">
+              Reviews
+            </div>
+          </div>
+          </app-tab>
+        </app-tabs>
+      </div>
+      <ng-template #loader>
+        <h1>Loading...</h1>
+      </ng-template>
+    </ng-container>
+</section>

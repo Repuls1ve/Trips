@@ -24,6 +24,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { JourneysEffects } from './store/journeys/journeys.effects';
 import { journeysReducer } from './store/journeys/journeys.reducer';
+import { Features } from './store/app.state';
+import { JourneyComponent } from './views/journey/journey.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { journeysReducer } from './store/journeys/journeys.reducer';
     CarouselComponent,
     CarouselItemComponent,
     ObserveVisibilityDirective,
-    PackageCardComponent
+    PackageCardComponent,
+    JourneyComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { journeysReducer } from './store/journeys/journeys.reducer';
     FlexLayoutModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({
-      journeys: journeysReducer
+      [Features.Journeys]: journeysReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

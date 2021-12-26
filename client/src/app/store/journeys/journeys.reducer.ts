@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store'
 import { IJourney, IJourneysError, IRatedJourneys, IRatedJourneysStats } from 'src/app/models/journey.model'
-import { loadJourneys, loadJourneysFailure, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadJourneysSuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './journeys.actions'
+import { loadJourney, loadJourneys, loadJourneysFailure, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadJourneysSuccess, loadJourneySuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './journeys.actions'
 
 export type status = 'pending' | 'loading' | 'error' | 'success'
 
@@ -17,6 +17,11 @@ export interface JourneysState {
   }
   journeys: {
     data: IJourney[]
+    error: IJourneysError | null
+    status: status
+  }
+  journey: {
+    data: IJourney
     error: IJourneysError | null
     status: status
   }
@@ -38,6 +43,11 @@ const initialState: JourneysState = {
     error: null,
     status: 'pending'
   },
+  journey: {
+    data: {} as IJourney,
+    error: null,
+    status: 'pending'
+  }
 }
 
 export const journeysReducer = createReducer(
@@ -112,6 +122,30 @@ export const journeysReducer = createReducer(
     ...state,
     journeys: {
       ...state.journeys,
+      error: error,
+      status: 'error'
+    }
+  })),
+  on(loadJourney, state => ({
+    ...state,
+    journey: {
+      ...state.journey,
+      status: 'loading'
+    }
+  })),
+  on(loadJourneySuccess, (state, payload) => ({
+    ...state,
+    journey: {
+      ...state.journey,
+      data: payload,
+      error: null,
+      status: 'success'
+    }
+  })),
+  on(loadJourneysFailure, (state, error) => ({
+    ...state,
+    journey: {
+      ...state.journey,
       error: error,
       status: 'error'
     }

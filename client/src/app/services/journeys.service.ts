@@ -33,4 +33,8 @@ export class JourneysService {
   getJourneysStats(): Observable<IRatedJourneysStats> {
     return this.http.get<IRatedJourneysStats>(this.baseUrl + '/journeys/rated/stats')
   }
+
+  getJourney(id: IJourney['_id']): Observable<IJourney> {
+    return this.http.get<IJourney>(this.baseUrl + `/journeys/one/${id}`)
+  }
 }

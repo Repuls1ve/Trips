@@ -1,6 +1,6 @@
 <div [ngSwitch]="variant" class="tour-card">
     <div
-    ngSwitchCaseDefault
+    *ngSwitchCase="'common'"
     class="tour-card-common"
     >
         <img
@@ -29,6 +29,44 @@
                 <div class="rating-scale">
                     <app-rating-scale [rating]="4.0"></app-rating-scale>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div
+    *ngSwitchCase="'expanded'"
+    class="tour-card-expanded"
+    >
+        <img
+        src="/assets/img/card-expanded-test.jpg"
+        [alt]="journey.info.photo.alt"
+        class="background-photo"
+        >
+        <div class="container">
+            <div class="descriptions">
+                <div class="score">
+                    <p class="rating">4.0</p>
+                    <div class="rating-scale">
+                        <app-rating-scale [rating]="4.0"></app-rating-scale>
+                    </div>
+                </div>
+                <div class="location">
+                    <img
+                    class="icon"
+                    src="/assets/img/location.svg"
+                    alt="location"
+                    >
+                    <p class="destination">{{ journey.info.destination }}</p>
+                </div>
+                <h3 class="title">{{ journey.info.title }}</h3>
+            </div>
+            <div class="price">
+                <p class="from">From</p>
+                <p class="value">€ {{ journey.info.prices.EUR }}</p>
+            </div>
+            <div class="customize">
+                <app-button
+                text="customize"
+                ></app-button>
             </div>
         </div>
     </div>

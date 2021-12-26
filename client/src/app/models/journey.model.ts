@@ -36,6 +36,7 @@ export interface IJourney {
 export interface IJourneyInfo {
   title: string
   continent: TravelContinent
+  package: string
   travel: TravelType
   travellers: number
   photo: IJourneyPhoto
