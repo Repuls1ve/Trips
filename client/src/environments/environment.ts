@@ -4,6 +4,7 @@
 
 export const environment = {
   baseURL: 'http://localhost:3000',
+  mapApiKey: 'AIzaSyA8U0XCc5k2-jvhBs7uCFBgCxwIIGyJocM',
   production: false
 };
 

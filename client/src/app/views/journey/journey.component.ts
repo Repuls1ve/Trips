@@ -3,6 +3,7 @@ import { MediaObserver } from '@angular/flex-layout';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { JourneyTabs } from 'src/app/constants/journey-tabs.constant';
+import { MapStyles } from 'src/app/constants/map-styles.constant';
 import { AppState } from 'src/app/store/app.state';
 import { loadJourney } from 'src/app/store/journeys/journeys.actions';
 import { selectJourney } from 'src/app/store/journeys/journeys.selectors';
@@ -15,6 +16,7 @@ import { selectJourney } from 'src/app/store/journeys/journeys.selectors';
 export class JourneyComponent implements OnInit {
   journey$ = this.store.select(selectJourney)
   tabs = JourneyTabs
+  styles = MapStyles
 
   constructor(
     private readonly route: ActivatedRoute,

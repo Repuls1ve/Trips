@@ -26,6 +26,7 @@ import { JourneysEffects } from './store/journeys/journeys.effects';
 import { journeysReducer } from './store/journeys/journeys.reducer';
 import { Features } from './store/app.state';
 import { JourneyComponent } from './views/journey/journey.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,9 @@ import { JourneyComponent } from './views/journey/journey.component';
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.mapApiKey
+    }),
     StoreModule.forRoot({
       [Features.Journeys]: journeysReducer
     }),

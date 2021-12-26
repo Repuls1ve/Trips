@@ -23,7 +23,18 @@
               Luxury Tour Plan
             </div>
             <div *ngSwitchCase="'Location'" class="location">
-              Location
+              <h2 class="title">Location</h2>
+              <p class="description">{{ journey.data.location.description }}</p>
+              <agm-map
+              [latitude]="journey.data.location.latitude"
+              [longitude]="journey.data.location.longitude"
+              [styles]="styles"
+              >
+                <agm-marker
+                [latitude]="journey.data.location.latitude"
+                [longitude]="journey.data.location.longitude"
+                ></agm-marker>
+              </agm-map>
             </div>
             <div *ngSwitchCase="'Travel Tips'" class="tips">
               <h2 class="title">Travel Tips</h2>
