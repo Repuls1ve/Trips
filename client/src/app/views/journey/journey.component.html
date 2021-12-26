@@ -17,7 +17,60 @@
           >
           <div [ngSwitch]="tab.name" class="tab-content">
             <div *ngSwitchCase="'Information'" class="information">
-              Information
+              <div class="card">
+                <img
+                [src]="journey.data.info.photo.source"
+                class="card-background"
+                >
+                <app-button
+                variant="decorative-alternative"
+                text="Book now"
+                ></app-button>
+              </div>
+              <div class="content">
+                <h2 class="title">{{ journey.data.info.title }}</h2>
+                <p class="description">{{ journey.data.info.description }}</p>
+                <div class="destination">
+                  <p class="label">Destination</p>
+                  <p class="value">{{ journey.data.info.destination }}</p>
+                </div>
+                <div class="departure">
+                  <p class="label">Departure</p>
+                  <p class="value">{{ journey.data.info.departure }}</p>
+                </div>
+                <div class="travellers">
+                  <p class="label">Travellers</p>
+                  <p class="value">{{ journey.data.info.travellers }} persons</p>
+                </div>
+                <div class="included">
+                  <h3 class="title">Included</h3>
+                  <div
+                  *ngFor="let advantage of journey.data.info.advantages"
+                  class="included-item"
+                  >
+                    <img
+                    class="icon"
+                    src="/assets/img/advantage.svg"
+                    alt="advantage"
+                    >
+                    {{ advantage }}
+                  </div>
+                </div>
+                <div class="not-included">
+                  <h3 class="title">Not Included</h3>
+                  <div
+                  *ngFor="let disadvantage of journey.data.info.disadvantages"
+                  class="not-included-item"
+                  >
+                    <img
+                    class="icon"
+                    src="/assets/img/disadvantage.svg"
+                    alt="disadvantage"
+                    >
+                    {{ disadvantage }}
+                  </div>
+                </div>
+              </div>
             </div>
             <div *ngSwitchCase="'Luxury Tour Plan'" class="tour-plan">
               Luxury Tour Plan

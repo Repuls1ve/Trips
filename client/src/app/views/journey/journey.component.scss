@@ -44,6 +44,97 @@
       background: white;
       border-radius: 10px;
 
+      .information {
+        display: flex;
+        gap: 5%;
+
+        .card {
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          position: relative;
+          flex: 0 0 350px;
+          height: 560px;
+          border-radius: 10px;
+
+          .card-background {
+            position: absolute;
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          app-button {
+            width: 70%;
+            margin-bottom: 50px;
+          }
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          flex-basis: 70%;
+
+          .title {
+            font-size: 2.5rem;
+            text-transform: capitalize;
+            font-weight: normal;
+          }
+
+          .description {
+            font-family: typography.$font-secondary;
+            font-weight: normal;
+            line-height: 29px;
+            margin: 25px 0;
+          }
+
+          .destination,
+          .departure,
+          .travellers {
+            display: flex;
+
+            .label {
+              font-family: typography.$font-secondary;
+              font-size: 1.125rem;
+              line-height: 42px;
+              flex-basis: 135px;
+            }
+
+            .value {
+              font-family: typography.$font-secondary;
+              font-weight: normal;
+              font-size: 1.125rem;
+              line-height: 42px;
+            }
+          }
+
+          .included,
+          .not-included {
+            .title {
+              line-height: 42px;
+              font-size: 1.125rem;
+              font-family: typography.$font-secondary;
+              font-weight: bold;
+            }
+
+            .included-item,
+            .not-included-item {
+              display: flex;
+              font-family: typography.$font-secondary;
+              font-size: 1.125rem;
+              line-height: 42px;
+              font-weight: normal;
+
+              .icon {
+                width: 25px;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+
       .tips {
         display: flex;
         flex-direction: column;
