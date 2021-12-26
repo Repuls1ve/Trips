@@ -17,7 +17,7 @@
           >
           <div [ngSwitch]="tab.name" class="tab-content">
             <div *ngSwitchCase="'Information'" class="information">
-              <div class="card">
+              <div class="card" *ngIf="media.isActive('gt-sm')">
                 <img
                 [src]="journey.data.info.photo.source"
                 class="card-background"
@@ -73,7 +73,38 @@
               </div>
             </div>
             <div *ngSwitchCase="'Luxury Tour Plan'" class="tour-plan">
-              Luxury Tour Plan
+              <h2 class="title">Luxury Tour Plan</h2>
+              <div
+              *ngFor="let step of journey.data.plan.steps"
+              class="step"
+              >
+                <img
+                class="step-icon"
+                src="/assets/img/step.svg"
+                alt="step"
+                >
+                <div class="content-wrapper">
+                  <div class="step-name">
+                    <h2 class="step-title">{{ step.title }}</h2>
+                  </div>
+                  <div class="step-descriptions">
+                    <p class="description">{{ step.description }}</p>
+                    <div
+                    *ngFor="let advantage of step.advantages"
+                    class="advantages"
+                    >
+                      <div class="advantage">
+                        <img
+                        class="icon"
+                        src="/assets/img/advantage.svg"
+                        alt="advantage"
+                        >
+                        {{ advantage }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div *ngSwitchCase="'Location'" class="location">
               <h2 class="title">Location</h2>
