@@ -5,4 +5,11 @@
 .rating-scale {
   display: flex;
   flex-direction: column;
+
+  .scale-mark {
+    &.color-secondary {
+      filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(686%)
+        hue-rotate(329deg) brightness(96%) contrast(88%);
+    }
+  }
 }

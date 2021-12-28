@@ -2,6 +2,8 @@
     <img
     *ngFor="let mark of marks"
     class="scale-mark"
+    [class.color-secondary]="color === 'secondary'"
+    alt="scale-mark"
     [src]="'/assets/img/' + (mark ? 'rating-mark-filled' : 'rating-mark') + '.svg'"
     >
 </div>

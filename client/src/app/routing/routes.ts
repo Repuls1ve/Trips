@@ -8,7 +8,7 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'journey/:id',
+    path: 'trips/journey/:id',
     component: JourneyComponent
   }
 ]

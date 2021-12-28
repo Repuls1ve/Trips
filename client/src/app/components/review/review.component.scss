@@ -1,0 +1,98 @@
+@use "src/assets/scss/typography";
+@use "src/assets/scss/colors";
+@use "src/assets/scss/breakpoints";
+
+.review {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 2.5% 3.5%;
+  width: 100%;
+  background-color: rgba($color: colors.$color-tertiary, $alpha: 0.2);
+  border-radius: 10px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 65%;
+    gap: 15px;
+
+    .text {
+      height: 145px;
+      overflow-y: auto;
+      font-family: typography.$font-secondary;
+      line-height: 30px;
+      font-size: 1.125rem;
+      font-weight: normal;
+    }
+
+    .signature {
+      display: flex;
+      flex-direction: column;
+
+      .author {
+        font-family: typography.$font-secondary;
+        font-style: normal;
+        font-size: 1.125rem;
+        font-weight: 500;
+      }
+
+      .date {
+        font-family: typography.$font-secondary;
+        font-weight: normal;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .scores {
+    display: flex;
+    gap: 15px;
+
+    .score {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .scale {
+        margin-bottom: 15px;
+        width: 15px;
+      }
+
+      .attribute {
+        font-family: typography.$font-secondary;
+        font-weight: normal;
+        color: colors.$color-secondary;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  @include breakpoints.tablet {
+    padding: 15px 20px;
+    flex-direction: column;
+
+    .content {
+      .text {
+        height: auto;
+      }
+
+      .signature {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @include breakpoints.mobile {
+    .scores {
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .score {
+        .scale {
+          width: 13px;
+        }
+      }
+    }
+  }
+}

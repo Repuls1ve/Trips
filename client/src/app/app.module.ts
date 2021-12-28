@@ -27,6 +27,7 @@ import { journeysReducer } from './store/journeys/journeys.reducer';
 import { Features } from './store/app.state';
 import { JourneyComponent } from './views/journey/journey.component';
 import { AgmCoreModule } from '@agm/core';
+import { ReviewComponent } from './components/review/review.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AgmCoreModule } from '@agm/core';
     CarouselItemComponent,
     ObserveVisibilityDirective,
     PackageCardComponent,
-    JourneyComponent
+    JourneyComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

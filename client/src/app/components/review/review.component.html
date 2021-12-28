@@ -1,0 +1,20 @@
+<div class="review">
+  <div class="content">
+    <p class="text">{{ review.content }}</p>
+    <div class="signature">
+      <cite class="author">{{ review.author }}</cite>
+      <time class="date"> {{ review.date }} </time>
+    </div>
+  </div>
+  <div class="scores">
+    <div class="score" *ngFor="let score of review.scores">
+      <div class="scale">
+        <app-rating-scale
+        [rating]="score.rating"
+        color="secondary"
+        ></app-rating-scale>
+      </div>
+      <p class="attribute">{{ score.attribute }}</p>
+    </div>
+  </div>
+</div>

@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   }
 
   onJourneyClick(journey: IJourney): void {
-    this.router.navigate([`/journey/${journey._id}`])
+    this.router.navigate([`trips/journey/${journey._id}`])
   }
 
   selectJourneys(data: IRatedJourneys[], continent: TravelContinent): IRatedJourneys | undefined {

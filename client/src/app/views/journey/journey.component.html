@@ -131,7 +131,44 @@
               Gallery
             </div>
             <div *ngSwitchCase="'Reviews'" class="reviews">
-              Reviews
+              <h2 class="title">Reviews Scores and Score Breakdown</h2>
+              <ng-container *ngIf="journey.data.reviews; else noReviews">
+                <app-button
+                variant="common"
+                theme="dark"
+                text="Post comment"
+                ></app-button>
+                <div class="breakdown">
+                  <div class="total">
+                    <div class="score">
+                      <app-rating-scale
+                      color="secondary"
+                      [rating]="breakdown.rating"
+                      ></app-rating-scale>
+                      <p class="rating">{{ breakdown.rating }}</p>
+                    </div>
+                    <p class="count">{{ journey.data.reviews.breakdown.count }} reviews</p>
+                  </div>
+                  <div class="attribute-scores">
+                    <div class="attribute-score" *ngFor="let score of journey.data.reviews.breakdown.scores">
+                      <app-rating-scale
+                      color="secondary"
+                      [rating]="score.rating"
+                      ></app-rating-scale>
+                      <p class="attribute">{{ score.attribute }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="customers-reviews">
+                  <app-review
+                  *ngFor="let review of journey.data.reviews.reviews"
+                  [review]="review"
+                  ></app-review>
+                </div>
+              </ng-container>
+              <ng-template #noReviews>
+                <h1>No reviews...</h1>
+              </ng-template>
             </div>
             <div *ngSwitchCase="'Cancellation policy'" class="cancellation">
               <h2 class="title">Cancellation policy</h2>
