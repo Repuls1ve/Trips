@@ -68,7 +68,6 @@ export interface IJourneyReviews {
 }
 
 export interface IJourneyReview {
-  title: IJourneyInfo['title']
   content: string
   scores: IJourneyReviewScore[]
   author: string
@@ -77,6 +76,8 @@ export interface IJourneyReview {
 
 export interface IJourneyReviewsBreakdown {
   rating: IJourneyReviewScore['rating']
+  scores: IJourneyReviewScore[]
+  count: number
 }
 
 export interface IJourneyReviewScore {
