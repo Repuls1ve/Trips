@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
 import { IsNumber, IsOptional, IsPositive } from 'class-validator';
 
-export class JourneysPackagesQuery {
+export class GetJourneysPackagesDto {
   @IsNumber()
   @IsPositive()
   @IsOptional()
