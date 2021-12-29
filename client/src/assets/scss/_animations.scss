@@ -1,13 +1,13 @@
-@mixin pulse {
+@mixin pulse($color: rgb(165, 165, 165), $opacity: 0.25) {
   @keyframes pulse {
     0% {
-      background-color: rgba(165, 165, 165, 0.1);
+      background-color: rgba($color, $opacity * 0.5);
     }
     50% {
-      background-color: rgba(165, 165, 165, 0.25);
+      background-color: rgba($color, $opacity);
     }
     100% {
-      background-color: rgba(165, 165, 165, 0.1);
+      background-color: rgba($color, $opacity * 0.5);
     }
   }
 }

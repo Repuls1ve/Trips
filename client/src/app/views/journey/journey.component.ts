@@ -14,6 +14,8 @@ import { selectJourney } from 'src/app/store/journeys/journeys.selectors';
   styleUrls: ['./journey.component.scss']
 })
 export class JourneyComponent implements OnInit {
+  id = this.route.snapshot.params['id']
+
   journey$ = this.store.select(selectJourney)
   tabs = JourneyTabs
   styles = MapStyles
@@ -25,7 +27,6 @@ export class JourneyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const { id } = this.route.snapshot.params
-    this.store.dispatch(loadJourney({id}))
+    this.store.dispatch(loadJourney({id: this.id}))
   }
 }

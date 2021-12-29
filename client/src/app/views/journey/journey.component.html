@@ -1,6 +1,6 @@
-<section class="journey">
-    <ng-container *ngIf="journey$ | async as journey">
-      <div class="heading" *ngIf="journey.status == 'success'; else loader">
+<section class="journey" *ngIf="journey$ | async as journey">
+    <ng-container *ngIf="journey.status == 'success'; else loader">
+      <div class="heading">
         <h1 class="title">{{ journey.data.info.package }}</h1>
         <div class="card-wrapper">
           <app-tour-card
@@ -9,7 +9,7 @@
           ></app-tour-card>
         </div>
       </div>
-      <div class="content" *ngIf="journey.status == 'success'; else loader">
+      <div class="content">
         <app-tabs>
           <app-tab
           *ngFor="let tab of tabs"
@@ -143,9 +143,9 @@
                     <div class="score">
                       <app-rating-scale
                       color="secondary"
-                      [rating]="breakdown.rating"
+                      [rating]="journey.data.reviews.breakdown.rating"
                       ></app-rating-scale>
-                      <p class="rating">{{ breakdown.rating }}</p>
+                      <p class="rating">{{ journey.data.reviews.breakdown.rating.toFixed(2) }}</p>
                     </div>
                     <p class="count">{{ journey.data.reviews.breakdown.count }} reviews</p>
                   </div>
@@ -184,8 +184,19 @@
           </app-tab>
         </app-tabs>
       </div>
-      <ng-template #loader>
-        <h1>Loading...</h1>
-      </ng-template>
     </ng-container>
+    <ng-template #loader>
+      <div class="skeleton-loader">
+        <div class="heading">
+          <div class="rect title"></div>
+          <div class="rect card"></div>
+        </div>
+        <div class="tabs">
+          <div class="rect tab" *ngFor="let tab of [].constructor(6)"></div>
+        </div>
+        <div class="body">
+          <div class="rect content"></div>
+        </div>
+      </div>
+    </ng-template>
 </section>
