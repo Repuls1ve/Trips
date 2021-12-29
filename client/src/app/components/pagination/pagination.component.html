@@ -1,0 +1,22 @@
+<div class="pagination">
+  <button
+  type="button"
+  class="previous"
+  [disabled]="page == 1"
+  (click)="selectPage(page - 1)"
+  >Previous</button>
+  <ul class="pages">
+    <li
+    *ngFor="let current of pages"
+    class="page"
+    [class.active]="current == page"
+    (click)="selectPage(current)"
+    >{{ current }}</li>
+  </ul>
+  <button
+  type="button"
+  class="next"
+  [disabled]="page == totalPages"
+  (click)="selectPage(page + 1)"
+  >Next</button>
+</div>

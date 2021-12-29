@@ -29,6 +29,7 @@ import { JourneyComponent } from './views/journey/journey.component';
 import { AgmCoreModule } from '@agm/core';
 import { ReviewComponent } from './components/review/review.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     ObserveVisibilityDirective,
     PackageCardComponent,
     JourneyComponent,
-    ReviewComponent
+    ReviewComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

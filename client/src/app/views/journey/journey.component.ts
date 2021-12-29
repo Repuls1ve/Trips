@@ -15,6 +15,8 @@ import { selectJourney } from 'src/app/store/journeys/journeys.selectors';
 })
 export class JourneyComponent implements OnInit {
   id = this.route.snapshot.params['id']
+  reviewsPage = 1
+  reviewsPageSize = 3
 
   journey$ = this.store.select(selectJourney)
   tabs = JourneyTabs
@@ -28,5 +30,9 @@ export class JourneyComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadJourney({id: this.id}))
+  }
+
+  changePage(page: number): void {
+    this.reviewsPage = page
   }
 }

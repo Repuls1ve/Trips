@@ -1,0 +1,52 @@
+@use "src/assets/scss/colors";
+@use "src/assets/scss/typography";
+
+.pagination {
+  display: flex;
+
+  .previous,
+  .next {
+    font-size: 0.875rem;
+    background-color: rgba($color: colors.$color-tertiary, $alpha: 0.2);
+    border-radius: 5px;
+    border: 1px solid rgba($color: colors.$color-secondary, $alpha: 0.4);
+    height: 38px;
+    padding: 0 1rem;
+  }
+
+  .previous:disabled,
+  .next:disabled {
+    opacity: 0.8;
+    color: rgba($color: colors.$color-primary, $alpha: 0.8);
+    cursor: default;
+  }
+
+  .previous {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .next {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .pages {
+    display: flex;
+
+    .page {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      background-color: rgba($color: colors.$color-tertiary, $alpha: 0.2);
+      border: 1px solid rgba($color: colors.$color-secondary, $alpha: 0.4);
+      height: 36px;
+      padding: 0 1rem;
+      cursor: pointer;
+
+      &.active {
+        background-color: rgba($color: colors.$color-secondary, $alpha: 0.5);
+      }
+    }
+  }
+}

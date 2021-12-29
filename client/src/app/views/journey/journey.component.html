@@ -161,9 +161,16 @@
               </div>
               <div class="customers-reviews">
                 <app-review
-                *ngFor="let review of journey.data.reviews.reviews"
+                *ngFor="let review of journey.data.reviews.reviews.slice((reviewsPage - 1) * reviewsPageSize, reviewsPage * reviewsPageSize)"
                 [review]="review"
                 ></app-review>
+                <div class="pagination-wrapper">
+                  <app-pagination
+                  [totalItems]="journey.data.reviews.breakdown.count"
+                  [pageSize]="reviewsPageSize"
+                  (onPageSelection)="changePage($event)"
+                  ></app-pagination>
+                </div>
               </div>
             </ng-container>
             <ng-template #noReviews>

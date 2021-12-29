@@ -147,6 +147,11 @@
           display: flex;
           flex-direction: column;
           gap: 25px;
+
+          .pagination-wrapper {
+            display: flex;
+            justify-content: flex-end;
+          }
         }
       }
 
