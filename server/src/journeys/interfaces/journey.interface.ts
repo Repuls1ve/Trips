@@ -71,7 +71,7 @@ export interface IJourneyReview {
   content: string
   scores: IJourneyReviewScore[]
   author: string
-  date: string
+  timestamp: number
 }
 
 export interface IJourneyReviewsBreakdown {
