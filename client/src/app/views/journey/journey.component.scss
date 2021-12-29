@@ -1,7 +1,6 @@
 @use "src/assets/scss/colors";
 @use "src/assets/scss/typography";
 @use "src/assets/scss/breakpoints";
-@use "src/assets/scss/animations";
 
 .journey {
   padding: 115px 7% 100px;
@@ -444,56 +443,14 @@
 }
 
 .skeleton-loader {
-  @include animations.pulse($opacity: 0.35);
-
-  display: flex;
-  flex-direction: column;
-
-  .heading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    gap: 5px;
-    margin-bottom: 15px;
-  }
-
   .tabs {
     display: flex;
     overflow: hidden;
     gap: 20px;
-  }
 
-  .body {
-    margin-top: 20px;
-  }
-
-  .rect {
-    background-color: colors.$color-tertiary;
-    width: 100%;
-    flex: 1;
-    flex-basis: 60px;
-    border-radius: 7px;
-    animation: pulse 1s infinite ease-in-out;
-
-    &.title {
-      width: 80%;
-    }
-
-    &.tab {
-      flex-basis: auto;
-      min-width: 120px;
-      height: 45px;
-    }
-
-    &.card {
-      width: 100%;
-      flex-basis: 560px;
-      border-radius: 20px;
-    }
-
-    &.content {
-      height: 500px;
+    .tab {
+      min-width: 125px;
+      flex: 1;
     }
   }
 }

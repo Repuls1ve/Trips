@@ -28,6 +28,7 @@ import { Features } from './store/app.state';
 import { JourneyComponent } from './views/journey/journey.component';
 import { AgmCoreModule } from '@agm/core';
 import { ReviewComponent } from './components/review/review.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ReviewComponent } from './components/review/review.component';
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+    NgxSkeletonLoaderModule.forRoot({animation: 'progress'}),
     AgmCoreModule.forRoot({
       apiKey: environment.mapApiKey
     }),

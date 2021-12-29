@@ -1,8 +1,5 @@
 @use "src/assets/scss/breakpoints";
 @use "src/assets/scss/colors";
-@use "src/assets/scss/animations";
-
-@include animations.pulse;
 
 .presentation {
   padding: 100px 7%;
@@ -112,32 +109,24 @@
   }
 
   .skeleton-loader {
-    display: flex;
-    flex-direction: column;
-
-    .heading {
-      display: flex;
-      overflow: hidden;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .body {
+    .tabs {
       display: flex;
       overflow: hidden;
       gap: 20px;
+
+      .tab {
+        min-width: 125px;
+        flex: 1;
+      }
     }
 
-    .rect {
-      min-width: 100px;
-      flex: 1;
-      height: 45px;
-      border-radius: 5px;
-      animation: pulse 1s infinite ease-in-out;
+    .cards {
+      display: flex;
+      overflow: hidden;
+      gap: 20px;
 
-      &.card {
-        min-width: 350px;
-        height: 560px;
+      .card {
+        width: 350px;
       }
     }
   }
