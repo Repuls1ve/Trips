@@ -30,6 +30,11 @@ import { AgmCoreModule } from '@agm/core';
 import { ReviewComponent } from './components/review/review.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { TextFieldComponent } from './components/text-field/text-field.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TextAreaComponent } from './components/text-area/text-area.component';
+import { RatingInputComponent } from './components/rating-input/rating-input.component';
+
 
 @NgModule({
   declarations: [
@@ -48,13 +53,17 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     PackageCardComponent,
     JourneyComponent,
     ReviewComponent,
-    PaginationComponent
+    PaginationComponent,
+    TextFieldComponent,
+    TextAreaComponent,
+    RatingInputComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     NgxSkeletonLoaderModule.forRoot({animation: 'progress'}),
     AgmCoreModule.forRoot({
       apiKey: environment.mapApiKey

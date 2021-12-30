@@ -153,6 +153,69 @@
             justify-content: flex-end;
           }
         }
+
+        .post-review {
+          width: 100%;
+
+          .title {
+            margin: 20px 0;
+            text-transform: none;
+            text-align: center;
+          }
+
+          .review-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .content {
+              display: flex;
+              width: 100%;
+
+              .fields {
+                display: flex;
+                flex-direction: column;
+                width: 65%;
+
+                app-text-field,
+                app-text-area {
+                  margin-bottom: 15px;
+                }
+
+                app-text-area {
+                  height: 265px;
+                }
+              }
+
+              .ratings {
+                display: flex;
+                flex-wrap: wrap;
+                width: 35%;
+
+                app-rating-input {
+                  width: 50%;
+                  margin-bottom: 15px;
+                }
+              }
+            }
+
+            .form-error {
+              color: colors.$color-danger;
+              font-family: typography.$font-secondary;
+              font-size: 0.875rem;
+              font-weight: normal;
+              margin-top: -10px;
+              margin-bottom: 7px;
+            }
+
+            .submit-wrapper {
+              margin-top: 40px;
+              margin-bottom: 20px;
+              width: 270px;
+            }
+          }
+        }
       }
 
       .tour-plan {

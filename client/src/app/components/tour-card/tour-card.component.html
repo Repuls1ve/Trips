@@ -25,9 +25,9 @@
                 </div>
             </div>
             <div class="score">
-                <p class="rating">4.0</p>
+                <p class="rating">{{ journey.reviews?.breakdown?.rating?.toFixed(1) || '4.0'}}</p>
                 <div class="rating-scale">
-                    <app-rating-scale [rating]="4.0"></app-rating-scale>
+                    <app-rating-scale [rating]="journey.reviews?.breakdown?.rating || 4.0"></app-rating-scale>
                 </div>
             </div>
         </div>
@@ -44,9 +44,9 @@
         <div class="container">
             <div class="descriptions">
                 <div class="score">
-                    <p class="rating">4.0</p>
+                    <p class="rating">{{ journey.reviews?.breakdown?.rating?.toFixed(1) || '4.0' }}</p>
                     <div class="rating-scale">
-                        <app-rating-scale [rating]="4.0"></app-rating-scale>
+                        <app-rating-scale [rating]="journey.reviews?.breakdown?.rating || 4.0"></app-rating-scale>
                     </div>
                 </div>
                 <div class="location">
