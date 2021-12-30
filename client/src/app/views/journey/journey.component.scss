@@ -188,14 +188,43 @@
                 }
               }
 
-              .ratings {
+              .ratings-container {
                 display: flex;
-                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
                 width: 35%;
 
-                app-rating-input {
-                  width: 50%;
-                  margin-bottom: 15px;
+                .ratings {
+                  display: flex;
+                  flex-wrap: wrap;
+                  width: 100%;
+
+                  app-rating-input {
+                    width: 50%;
+                    margin-bottom: 15px;
+                  }
+                }
+              }
+
+              @include breakpoints.tablet {
+                flex-direction: column;
+
+                .fields {
+                  width: 100%;
+                }
+
+                .ratings-container {
+                  width: 100%;
+
+                  .ratings {
+                    app-rating-input {
+                      width: 25%;
+
+                      @include breakpoints.new(600px) {
+                        width: 50%;
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -213,6 +242,10 @@
               margin-top: 40px;
               margin-bottom: 20px;
               width: 270px;
+
+              @include breakpoints.tablet {
+                width: 235px;
+              }
             }
           }
         }

@@ -29,10 +29,10 @@ export class JourneyComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     comment: ['', [Validators.required, Validators.minLength(12)]],
     ratings: this.fb.group({
-      comfort: [0, Validators.required],
-      hospitality: [0, Validators.required],
-      hygiene: [0, Validators.required],
-      reception: [0, Validators.required]
+      comfort: [null, Validators.required],
+      hospitality: [null, Validators.required],
+      hygiene: [null, Validators.required],
+      reception: [null, Validators.required]
     })
   })
 

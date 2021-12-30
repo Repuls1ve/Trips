@@ -211,27 +211,33 @@
                     *ngIf="form['comment'].errors && formReview.dirty && (form['comment'].errors['required'] || form['comment'].errors['minlength'])"
                     >Comment cannot be empty or less than 12 characters</strong>
                   </div>
-                  <div class="ratings" formGroupName="ratings">
-                    <app-rating-input
-                    label="Comfort"
-                    formControlName="comfort"
-                    [resetSubject]="reviewResetSubject"
-                    ></app-rating-input>
-                    <app-rating-input
-                    label="Hospitality"
-                    formControlName="hospitality"
-                    [resetSubject]="reviewResetSubject"
-                    ></app-rating-input>
-                    <app-rating-input
-                    label="Hygiene"
-                    formControlName="hygiene"
-                    [resetSubject]="reviewResetSubject"
-                    ></app-rating-input>
-                    <app-rating-input
-                    label="Reception"
-                    formControlName="reception"
-                    [resetSubject]="reviewResetSubject"
-                    ></app-rating-input>
+                  <div class="ratings-container">
+                    <div class="ratings" formGroupName="ratings">
+                      <app-rating-input
+                      label="Comfort"
+                      formControlName="comfort"
+                      [resetSubject]="reviewResetSubject"
+                      ></app-rating-input>
+                      <app-rating-input
+                      label="Hospitality"
+                      formControlName="hospitality"
+                      [resetSubject]="reviewResetSubject"
+                      ></app-rating-input>
+                      <app-rating-input
+                      label="Hygiene"
+                      formControlName="hygiene"
+                      [resetSubject]="reviewResetSubject"
+                      ></app-rating-input>
+                      <app-rating-input
+                      label="Reception"
+                      formControlName="reception"
+                      [resetSubject]="reviewResetSubject"
+                      ></app-rating-input>
+                    </div>
+                    <strong
+                    class="form-error"
+                    *ngIf="form['ratings'].status == 'INVALID' && formReview.dirty"
+                    >Please rate this journey</strong>
                   </div>
                 </div>
                 <div class="submit-wrapper">
