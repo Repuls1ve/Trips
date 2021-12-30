@@ -1,0 +1,24 @@
+<div class="rating-input-container">
+  <p class="label" *ngIf="label">{{ label }}</p>
+  <input
+  [formControl]="ratingControl"
+  [value]="selected"
+  class="rating-input"
+  >
+  <span
+  *ngFor="let rating of [1, 2, 3, 4, 5]"
+  class="rating-label"
+  >
+    <div
+    class="rating-mark-wrapper"
+    (mouseenter)="setHovered(rating)"
+    (mouseleave)="setHovered(0)"
+    (click)="setSelected(rating)"
+    >
+      <img
+      class="rating-mark"
+      [src]="'/assets/img/' + (rating <= hovered || selected >= rating ? 'rating-mark-filled' : 'rating-mark') + '.svg'"
+      >
+    </div>
+  </span>
+</div>

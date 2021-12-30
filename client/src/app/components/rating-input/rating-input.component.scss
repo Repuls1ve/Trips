@@ -1,0 +1,30 @@
+@use "src/assets/scss/colors";
+@use "src/assets/scss/typography";
+
+.rating-input-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  .rating-input {
+    display: none;
+  }
+
+  .rating-label {
+    cursor: pointer;
+
+    .rating-mark {
+      width: 15px;
+      filter: brightness(0) saturate(100%) invert(40%) sepia(10%) saturate(686%)
+        hue-rotate(329deg) brightness(96%) contrast(88%);
+    }
+  }
+
+  .label {
+    margin-top: 12px;
+    font-family: typography.$font-secondary;
+    font-weight: normal;
+    font-size: 0.925rem;
+    color: colors.$color-secondary;
+  }
+}
