@@ -1,0 +1,18 @@
+@use "src/assets/scss/colors";
+@use "src/assets/scss/typography";
+
+.text-field {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 75px;
+  border: 1px solid colors.$color-tertiary;
+  padding: 13px 40px;
+  font-size: 0.875rem;
+  font-family: typography.$font-secondary;
+  font-weight: normal;
+
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}
