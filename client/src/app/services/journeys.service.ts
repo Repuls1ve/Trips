@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AddReviewDto } from '../dtos/add-review.dto';
-import { IJourney, IJourneyReview, IJourneyReviews, IJourneysQuery, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from '../models/journey.model';
+import { IJourney, IJourneyReview, IJourneyReviews, IJourneysPackagesQuery, IJourneysPackagesStats, IJourneysQuery, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from '../models/journey.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,14 @@ export class JourneysService {
   
   getJourneysStats(): Observable<IRatedJourneysStats> {
     return this.http.get<IRatedJourneysStats>(this.baseUrl + '/journeys/rated/stats')
+  }
+
+  getJourneysPackages(journeysPackagesQuery: IJourneysPackagesQuery): Observable<IJourneysPackagesStats> {
+    const { limit } = journeysPackagesQuery
+    const params = {
+      ...limit && { limit }
+    }
+    return this.http.get<IJourneysPackagesStats>(this.baseUrl + '/journeys/packages/stats', { params })
   }
 
   getJourney(id: IJourney['_id']): Observable<IJourney> {

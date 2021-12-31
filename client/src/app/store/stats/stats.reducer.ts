@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store'
-import { IJourneysError, IRatedJourneys, IRatedJourneysStats } from 'src/app/models/journey.model'
+import { IJourneysError, IJourneysPackagesStats, IRatedJourneys, IRatedJourneysStats } from 'src/app/models/journey.model'
 import { status } from '../journeys/journeys.reducer'
-import { loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './stats.actions'
+import { loadJourneysPackages, loadJourneysPackagesFailure, loadJourneysPackagesSuccess, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './stats.actions'
 
 export interface StatsState {
   stats: {
@@ -15,7 +15,7 @@ export interface StatsState {
     status: status
   }
   packages: {
-    data: any[],
+    data: IJourneysPackagesStats,
     error: IJourneysError | null,
     status: status
   } 
@@ -33,7 +33,7 @@ const initialState: StatsState = {
     status: 'pending'
   },
   packages: {
-    data: [] as any[],
+    data: [] as IJourneysPackagesStats,
     error: null,
     status: 'pending'
   }
@@ -87,6 +87,30 @@ export const statsReducer = createReducer(
     ...state,
     rated: {
       ...state.rated,
+      error: error,
+      status: 'error'
+    }
+  })),
+  on(loadJourneysPackages, state => ({
+    ...state,
+    packages: {
+      ...state.packages,
+      status: 'pending'
+    }
+  })),
+  on(loadJourneysPackagesSuccess, (state, payload) => ({
+    ...state,
+    packages: {
+      ...state.packages,
+      data: payload.data,
+      error: null,
+      status: 'success'
+    }
+  })),
+  on(loadJourneysPackagesFailure, (state, error) => ({
+    ...state,
+    packages: {
+      ...state.packages,
       error: error,
       status: 'error'
     }

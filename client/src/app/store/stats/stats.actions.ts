@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store'
-import { IJourneysError, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from 'src/app/models/journey.model'
+import { IJourneysError, IJourneysPackagesQuery, IJourneysPackagesStats, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from 'src/app/models/journey.model'
 
 export const loadJourneysStats = createAction(
   '[Home Page] Load Journeys Stats'
@@ -27,5 +27,20 @@ export const loadRatedJourneysSuccess = createAction(
 
 export const loadRatedJourneysFailure = createAction(
   '[Home Page] Load Rated Journeys Failure',
+  props<IJourneysError>()
+)
+
+export const loadJourneysPackages = createAction(
+  '[Home Page] Load Journeys Packages',
+  props<IJourneysPackagesQuery>()
+)
+
+export const loadJourneysPackagesSuccess = createAction(
+  '[Home Page] Load Journeys Packages Success',
+  props<{data: IJourneysPackagesStats}>()
+)
+
+export const loadJourneysPackagesFailure = createAction(
+  '[Home Page] Load Journeys Packages Failure',
   props<IJourneysError>()
 )
