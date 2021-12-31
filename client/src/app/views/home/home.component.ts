@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 import { TabComponent } from 'src/app/components/tab/tab.component';
 import { IJourney, IRatedJourneys, TravelContinent } from 'src/app/models/journey.model';
 import { AppState } from 'src/app/store/app.state';
-import { loadJourneysStats, loadRatedJourneys } from 'src/app/store/journeys/journeys.actions';
-import { selectJourneysStats, selectRatedJourneys } from 'src/app/store/journeys/journeys.selectors';
+import { loadJourneysStats, loadRatedJourneys } from 'src/app/store/stats/stats.actions';
+import { selectRated, selectStats } from 'src/app/store/stats/stats.selectors';
 
 
 @Component({
@@ -15,8 +15,8 @@ import { selectJourneysStats, selectRatedJourneys } from 'src/app/store/journeys
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  readonly stats$ = this.store.select(selectJourneysStats)
-  readonly journeys$ = this.store.select(selectRatedJourneys)
+  readonly stats$ = this.store.select(selectStats)
+  readonly journeys$ = this.store.select(selectRated)
 
   constructor(
     public readonly media: MediaObserver,

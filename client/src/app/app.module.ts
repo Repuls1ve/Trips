@@ -34,6 +34,10 @@ import { TextFieldComponent } from './components/text-field/text-field.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { TextAreaComponent } from './components/text-area/text-area.component';
 import { RatingInputComponent } from './components/rating-input/rating-input.component';
+import { JourneyEffects } from './store/journey/journey.effects';
+import { StatsEffects } from './store/stats/stats.effects';
+import { journeyReducer } from './store/journey/journey.reducer';
+import { statsReducer } from './store/stats/stats.reducer';
 
 
 @NgModule({
@@ -69,13 +73,15 @@ import { RatingInputComponent } from './components/rating-input/rating-input.com
       apiKey: environment.mapApiKey
     }),
     StoreModule.forRoot({
-      [Features.Journeys]: journeysReducer
+      [Features.Journeys]: journeysReducer,
+      [Features.Journey]: journeyReducer,
+      [Features.Stats]: statsReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([JourneysEffects]),
+    EffectsModule.forRoot([JourneysEffects, JourneyEffects, StatsEffects]),
     HttpClientModule
   ],
   providers: [],

@@ -8,8 +8,8 @@ import { JourneyTabs } from 'src/app/constants/journey-tabs.constant';
 import { MapStyles } from 'src/app/constants/map-styles.constant';
 import { AddReviewDto } from 'src/app/dtos/add-review.dto';
 import { AppState } from 'src/app/store/app.state';
-import { addReview, loadJourney } from 'src/app/store/journeys/journeys.actions';
-import { selectJourney, selectReview } from 'src/app/store/journeys/journeys.selectors';
+import { addReview, loadJourney } from 'src/app/store/journey/journey.actions';
+import { selectJourney, selectReview } from 'src/app/store/journey/journey.selectors';
 
 @Component({
   selector: 'app-journey',

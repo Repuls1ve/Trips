@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { JourneysService } from 'src/app/services/journeys.service';
-import { addReview, addReviewFailure, addReviewSuccess, loadJourney, loadJourneyFailure, loadJourneys, loadJourneysFailure, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadJourneysSuccess, loadJourneySuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './journeys.actions';
+import { loadJourneys, loadJourneysFailure, loadJourneysSuccess } from './journeys.actions';
 
 @Injectable()
 export class JourneysEffects {
@@ -16,38 +16,6 @@ export class JourneysEffects {
     switchMap(payload => this.journeys.getJourneys(payload).pipe(
       map(data => loadJourneysSuccess({data})),
       catchError(error => of(loadJourneysFailure(error)))
-    ))
-  ))
-
-  loadJourneysStats$ = createEffect(() => this.actions$.pipe(
-    ofType(loadJourneysStats),
-    switchMap(() => this.journeys.getJourneysStats().pipe(
-      map(data => loadJourneysStatsSuccess(data)),
-      catchError(error => of(loadJourneysStatsFailure(error)))
-    ))
-  ))
-
-  loadRatedJourneys$ = createEffect(() => this.actions$.pipe(
-    ofType(loadRatedJourneys),
-    switchMap(payload => this.journeys.getRatedJourneys(payload).pipe(
-      map(data => loadRatedJourneysSuccess(data)),
-      catchError(error => of(loadRatedJourneysFailure(error)))
-    ))
-  ))
-
-  loadJourney$ = createEffect(() => this.actions$.pipe(
-    ofType(loadJourney),
-    switchMap(payload => this.journeys.getJourney(payload.id).pipe(
-      map(data => loadJourneySuccess(data)),
-      catchError(error => of(loadJourneyFailure(error)))
-    ))
-  ))
-
-  addReview$ = createEffect(() => this.actions$.pipe(
-    ofType(addReview),
-    switchMap(payload => this.journeys.addReview(payload).pipe(
-      map(data => addReviewSuccess(data)),
-      catchError(error => of(addReviewFailure(error)))
     ))
   ))
 }

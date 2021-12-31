@@ -1,58 +1,20 @@
 import { createReducer, on } from '@ngrx/store'
-import { IJourney, IJourneyReviews, IJourneysError, IRatedJourneys, IRatedJourneysStats } from 'src/app/models/journey.model'
-import { addReview, addReviewFailure, addReviewSuccess, loadJourney, loadJourneys, loadJourneysFailure, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadJourneysSuccess, loadJourneySuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './journeys.actions'
+import { IJourney, IJourneysError } from 'src/app/models/journey.model'
+import { loadJourneys, loadJourneysFailure, loadJourneysSuccess } from './journeys.actions'
 
 export type status = 'pending' | 'loading' | 'error' | 'success'
 
 export interface JourneysState {
-  stats: {
-    data: IRatedJourneysStats
-    error: IJourneysError | null
-    status: status
-  }
-  rated: {
-    data: IRatedJourneys[]
-    error: IJourneysError | null
-    status: status
-  }
   journeys: {
     data: IJourney[]
-    error: IJourneysError | null
-    status: status
-  }
-  journey: {
-    data: IJourney
-    error: IJourneysError | null
-    status: status
-  }
-  review: {
     error: IJourneysError | null
     status: status
   }
 }
 
 const initialState: JourneysState = {
-  stats: {
-    data: {} as IRatedJourneysStats,
-    error: null,
-    status: 'pending'
-  },
-  rated: {
-    data: [] as IRatedJourneys[],
-    error: null,
-    status: 'pending'
-  },
   journeys: {
     data: [] as IJourney[],
-    error: null,
-    status: 'pending'
-  },
-  journey: {
-    data: {} as IJourney,
-    error: null,
-    status: 'pending'
-  },
-  review: {
     error: null,
     status: 'pending'
   }
@@ -60,56 +22,6 @@ const initialState: JourneysState = {
 
 export const journeysReducer = createReducer(
   initialState,
-  on(loadJourneysStats, state => ({
-    ...state,
-    stats: {
-      ...state.stats,
-      status: 'loading'
-    }
-  })),
-  on(loadJourneysStatsSuccess, (state, payload) => ({
-    ...state,
-    stats: {
-      ...state.stats,
-      data: payload,
-      error: null,
-      status: 'success'
-    }
-  })),
-  on(loadJourneysStatsFailure, (state, error) => ({
-    ...state,
-    stats: {
-      ...state.stats,
-      error: error,
-      status: 'error'
-    }
-  })),
-  on(loadRatedJourneys, state => ({
-    ...state,
-    rated: {
-      ...state.rated,
-      status: 'loading'
-    }
-  })),
-  on(loadRatedJourneysSuccess, (state, payload) => {
-    return {
-      ...state,
-      rated: {
-        ...state.rated,
-        data: [...state.rated.data.filter(journeys => journeys.continent !== payload.continent), payload],
-        error: null,
-        status: 'success'
-      }
-    }
-  }),
-  on(loadRatedJourneysFailure, (state, error) => ({
-    ...state,
-    rated: {
-      ...state.rated,
-      error: error,
-      status: 'error'
-    }
-  })),
   on(loadJourneys, state => ({
     ...state,
     journeys: {
@@ -130,60 +42,6 @@ export const journeysReducer = createReducer(
     ...state,
     journeys: {
       ...state.journeys,
-      error: error,
-      status: 'error'
-    }
-  })),
-  on(loadJourney, state => ({
-    ...state,
-    journey: {
-      ...state.journey,
-      status: 'loading'
-    }
-  })),
-  on(loadJourneySuccess, (state, payload) => ({
-    ...state,
-    journey: {
-      ...state.journey,
-      data: payload,
-      error: null,
-      status: 'success'
-    }
-  })),
-  on(loadJourneysFailure, (state, error) => ({
-    ...state,
-    journey: {
-      ...state.journey,
-      error: error,
-      status: 'error'
-    }
-  })),
-  on(addReview, state => ({
-    ...state,
-    review: {
-      ...state.review,
-      status: 'loading'
-    }
-  })),
-  on(addReviewSuccess, (state, payload) => ({
-    ...state,
-    review: {
-      ...state.review,
-      error: null,
-      status: 'loading',
-    },
-    journey: {
-      ...state.journey,
-      data: {
-        ...state.journey.data,
-        reviews: payload
-      }
-    }
-  })),
-  on(addReviewFailure, (state, error) => ({
-    ...state,
-    review: {
-      ...state.review,
       error: error,
       status: 'error'
     }
