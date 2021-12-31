@@ -117,6 +117,7 @@
               }
 
               .attribute {
+                text-transform: capitalize;
                 font-family: typography.$font-secondary;
                 font-weight: normal;
                 font-size: 0.875rem;
@@ -144,13 +145,20 @@
         }
 
         .customers-reviews {
+          width: 100%;
           display: flex;
           flex-direction: column;
           gap: 25px;
 
           .pagination-wrapper {
+            width: 100%;
             display: flex;
+            overflow: auto;
             justify-content: flex-end;
+
+            @include breakpoints.mobile {
+              justify-content: flex-start;
+            }
           }
         }
 
@@ -204,6 +212,10 @@
                     margin-bottom: 15px;
                   }
                 }
+
+                .form-error {
+                  margin-top: -5px;
+                }
               }
 
               @include breakpoints.tablet {
@@ -245,6 +257,10 @@
 
               @include breakpoints.tablet {
                 width: 235px;
+              }
+
+              @include breakpoints.new(335px) {
+                width: 100%;
               }
             }
           }

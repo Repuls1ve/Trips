@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store'
-import { IJourney, IJourneysError, IRatedJourneys, IRatedJourneysStats } from 'src/app/models/journey.model'
-import { loadJourney, loadJourneys, loadJourneysFailure, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadJourneysSuccess, loadJourneySuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './journeys.actions'
+import { IJourney, IJourneyReviews, IJourneysError, IRatedJourneys, IRatedJourneysStats } from 'src/app/models/journey.model'
+import { addReview, addReviewFailure, addReviewSuccess, loadJourney, loadJourneys, loadJourneysFailure, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadJourneysSuccess, loadJourneySuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './journeys.actions'
 
 export type status = 'pending' | 'loading' | 'error' | 'success'
 
@@ -9,7 +9,7 @@ export interface JourneysState {
     data: IRatedJourneysStats
     error: IJourneysError | null
     status: status
-  },
+  }
   rated: {
     data: IRatedJourneys[]
     error: IJourneysError | null
@@ -22,6 +22,10 @@ export interface JourneysState {
   }
   journey: {
     data: IJourney
+    error: IJourneysError | null
+    status: status
+  }
+  review: {
     error: IJourneysError | null
     status: status
   }
@@ -45,6 +49,10 @@ const initialState: JourneysState = {
   },
   journey: {
     data: {} as IJourney,
+    error: null,
+    status: 'pending'
+  },
+  review: {
     error: null,
     status: 'pending'
   }
@@ -146,6 +154,36 @@ export const journeysReducer = createReducer(
     ...state,
     journey: {
       ...state.journey,
+      error: error,
+      status: 'error'
+    }
+  })),
+  on(addReview, state => ({
+    ...state,
+    review: {
+      ...state.review,
+      status: 'loading'
+    }
+  })),
+  on(addReviewSuccess, (state, payload) => ({
+    ...state,
+    review: {
+      ...state.review,
+      error: null,
+      status: 'loading',
+    },
+    journey: {
+      ...state.journey,
+      data: {
+        ...state.journey.data,
+        reviews: payload
+      }
+    }
+  })),
+  on(addReviewFailure, (state, error) => ({
+    ...state,
+    review: {
+      ...state.review,
       error: error,
       status: 'error'
     }

@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { IJourney, IJourneysError, IJourneysQuery, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from 'src/app/models/journey.model';
+import { AddReviewDto } from 'src/app/dtos/add-review.dto';
+import { IJourney, IJourneyReviews, IJourneysError, IJourneysQuery, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from 'src/app/models/journey.model';
 
 export const loadJourneysStats = createAction(
   '[Home Page] Load Journeys Stats'
@@ -57,5 +58,20 @@ export const loadJourneySuccess = createAction(
 
 export const loadJourneyFailure = createAction(
   '[Journey Page] Load Journey Failure',
+  props<IJourneysError>()
+)
+
+export const addReview = createAction(
+  '[Journey Page] Post Review',
+  props<AddReviewDto>()
+)
+
+export const addReviewSuccess = createAction(
+  '[Journey Page] Post Review Success',
+  props<IJourneyReviews>()
+)
+
+export const addReviewFailure = createAction(
+  '[Journey Page] Post Review Failure',
   props<IJourneysError>()
 )

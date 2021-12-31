@@ -6,9 +6,10 @@ import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { JourneyTabs } from 'src/app/constants/journey-tabs.constant';
 import { MapStyles } from 'src/app/constants/map-styles.constant';
+import { AddReviewDto } from 'src/app/dtos/add-review.dto';
 import { AppState } from 'src/app/store/app.state';
-import { loadJourney } from 'src/app/store/journeys/journeys.actions';
-import { selectJourney } from 'src/app/store/journeys/journeys.selectors';
+import { addReview, loadJourney } from 'src/app/store/journeys/journeys.actions';
+import { selectJourney, selectReview } from 'src/app/store/journeys/journeys.selectors';
 
 @Component({
   selector: 'app-journey',
@@ -21,6 +22,7 @@ export class JourneyComponent implements OnInit {
   reviewsPageSize = 3
 
   journey$ = this.store.select(selectJourney)
+  review$ = this.store.select(selectReview)
   tabs = JourneyTabs
   styles = MapStyles
 
@@ -56,10 +58,25 @@ export class JourneyComponent implements OnInit {
   onReviewSubmit(): void {
     this.formReview.markAsDirty()
     if (this.formReview.valid) {
-      console.warn('Submitted!', this.formReview.value)
+      this.store.dispatch(addReview(this.generateReview()))
       this.reviewResetSubject.next()
       this.formReview.reset()
       this.formReview.markAsPristine()
+    }
+  }
+
+  generateReview(): AddReviewDto {
+    return {
+      id: this.id,
+      review: {
+        author: this.formReview.value.name,
+        content: this.formReview.value.comment,
+        scores: Object.keys(this.formReview.value.ratings).map(attribute => ({
+          attribute: attribute,
+          rating: this.formReview.value.ratings[attribute]
+        })),
+        timestamp: Date.now()
+      }
     }
   }
 

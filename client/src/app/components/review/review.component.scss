@@ -60,6 +60,7 @@
       }
 
       .attribute {
+        text-transform: capitalize;
         font-family: typography.$font-secondary;
         font-weight: normal;
         color: colors.$color-secondary;

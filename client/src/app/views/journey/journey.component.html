@@ -164,7 +164,7 @@
                 *ngFor="let review of journey.data.reviews.reviews.slice((reviewsPage - 1) * reviewsPageSize, reviewsPage * reviewsPageSize)"
                 [review]="review"
                 ></app-review>
-                <div class="pagination-wrapper">
+                <div class="pagination-wrapper" *ngIf="journey.data.reviews.reviews.length > reviewsPageSize">
                   <app-pagination
                   [totalItems]="journey.data.reviews.breakdown.count"
                   [pageSize]="reviewsPageSize"

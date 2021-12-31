@@ -3,7 +3,7 @@
     <p class="text">{{ review.content }}</p>
     <div class="signature">
       <cite class="author">{{ review.author }}</cite>
-      <time class="date"> {{ review.timestamp * 1000 | date:'dd/MM/yyyy' }} </time>
+      <time class="date"> {{ review.timestamp | date:'dd/MM/yyyy' }} </time>
     </div>
   </div>
   <div class="scores">

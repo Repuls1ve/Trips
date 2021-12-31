@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IJourney, IJourneysQuery, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from '../models/journey.model';
+import { AddReviewDto } from '../dtos/add-review.dto';
+import { IJourney, IJourneyReview, IJourneyReviews, IJourneysQuery, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from '../models/journey.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,9 @@ export class JourneysService {
 
   getJourney(id: IJourney['_id']): Observable<IJourney> {
     return this.http.get<IJourney>(this.baseUrl + `/journeys/one/${id}`)
+  }
+
+  addReview(addReviewDto: AddReviewDto): Observable<IJourneyReviews> {
+    return this.http.post<IJourneyReviews>(this.baseUrl + '/journeys/reviews/add', addReviewDto)
   }
 }
