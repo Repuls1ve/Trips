@@ -228,4 +228,10 @@
       }
     }
   }
+
+  .carousel-loader {
+    display: flex;
+    overflow: hidden;
+    gap: 20px;
+  }
 }
