@@ -38,6 +38,7 @@ import { JourneyEffects } from './store/journey/journey.effects';
 import { StatsEffects } from './store/stats/stats.effects';
 import { journeyReducer } from './store/journey/journey.reducer';
 import { statsReducer } from './store/stats/stats.reducer';
+import { TripsComponent } from './views/trips/trips.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { statsReducer } from './store/stats/stats.reducer';
     PaginationComponent,
     TextFieldComponent,
     TextAreaComponent,
-    RatingInputComponent
+    RatingInputComponent,
+    TripsComponent
   ],
   imports: [
     BrowserModule,

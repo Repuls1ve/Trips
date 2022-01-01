@@ -1,0 +1,25 @@
+<div class="trips">
+  <div class="heading">
+    <h1 class="title">Luxury Trips</h1>
+  </div>
+  <main class="content" *ngIf="journeys$ | async as journeys">
+    <div class="search">
+      <app-search></app-search>
+    </div>
+    <div class="journeys">
+      <div class="card" *ngFor="let journey of journeys.data">
+        <app-tour-card
+        (click)="toJourney(journey)"
+        [journey]="journey"
+        ></app-tour-card>
+      </div>
+    </div>
+    <div class="load-more">
+      <app-button
+      variant="decorative-alternative"
+      (click)="uploadJourneys()"
+      text="Load more"
+      ></app-button>
+    </div>
+  </main>
+</div>

@@ -15,3 +15,18 @@ export const loadJourneysFailure = createAction(
   '[Journeys Page] Load Journeys Failure',
   props<IJourneysError>()
 )
+
+export const uploadJourneys = createAction(
+  '[Journeys Page] Upload Journeys',
+  props<IJourneysQuery>()
+)
+
+export const uploadJourneysSuccess = createAction(
+  '[Journeys Page] Upload Journeys Success',
+  props<{data: IJourney[]}>()
+)
+
+export const uploadJourneysFailure = createAction(
+  '[Journeys Page] Upload Journeys Failure',
+  props<IJourneysError>()
+)

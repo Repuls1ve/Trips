@@ -1,0 +1,87 @@
+@use "src/assets/scss/colors";
+@use "src/assets/scss/breakpoints";
+
+.trips {
+  .heading {
+    padding: 100px 7%;
+    background-image: linear-gradient(
+        180deg,
+        rgba(226, 211, 206, 0) 70%,
+        rgba(226, 211, 206, 0.71) 87.71%,
+        colors.$color-tertiary 100%
+      ),
+      url("/assets/img/sky.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .title {
+      font-size: 3.75rem;
+      font-weight: normal;
+      text-align: center;
+    }
+  }
+
+  .content {
+    padding: 0 7% 70px;
+    background: linear-gradient(
+      180deg,
+      #e2d3ce 0%,
+      #c9c8d8 30.73%,
+      #d4d8c6 59.37%,
+      #e2d3ce 100%
+    );
+
+    .journeys {
+      margin-top: 50px;
+      margin-bottom: 35px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+
+      .card {
+        flex-basis: 23.5%;
+        min-width: 350px;
+        height: 560px;
+      }
+
+      @include breakpoints.new(1290px) {
+        justify-content: space-around;
+      }
+
+      @include breakpoints.tablet {
+        justify-content: space-between;
+      }
+
+      @include breakpoints.new(850px) {
+        .card {
+          min-width: 330px;
+        }
+      }
+
+      @include breakpoints.new(810px) {
+        .card {
+          flex-basis: 100%;
+        }
+      }
+
+      @include breakpoints.mobile {
+        .card {
+          min-width: auto;
+        }
+      }
+    }
+
+    .load-more {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      width: 100%;
+
+      app-button {
+        width: 270px;
+      }
+    }
+  }
+}
