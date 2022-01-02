@@ -39,6 +39,7 @@ import { StatsEffects } from './store/stats/stats.effects';
 import { journeyReducer } from './store/journey/journey.reducer';
 import { statsReducer } from './store/stats/stats.reducer';
 import { TripsComponent } from './views/trips/trips.component';
+import { NewslettersComponent } from './components/newsletters/newsletters.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { TripsComponent } from './views/trips/trips.component';
     TextFieldComponent,
     TextAreaComponent,
     RatingInputComponent,
-    TripsComponent
+    TripsComponent,
+    NewslettersComponent
   ],
   imports: [
     BrowserModule,

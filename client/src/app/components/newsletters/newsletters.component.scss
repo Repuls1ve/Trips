@@ -1,0 +1,121 @@
+@use "src/assets/scss/typography";
+@use "src/assets/scss/colors";
+@use "src/assets/scss/breakpoints";
+
+.newsletters {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6% 20% 8%;
+  background: url("/assets/img/newsletters.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+
+  .title {
+    font-size: 3.75rem;
+    font-weight: normal;
+    text-align: left;
+    width: 75%;
+    color: white;
+  }
+
+  .subtitle {
+    font-family: typography.$font-secondary;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 28px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .subscribe {
+    position: relative;
+
+    .email {
+      width: 100%;
+      height: 55px;
+      outline: none;
+      box-sizing: border-box;
+      padding: 13px 30px;
+      border: 1px solid white;
+      backdrop-filter: blur(20px);
+      border-radius: 95px;
+      background-color: rgba($color: white, $alpha: 0.14);
+      font-family: typography.$font-secondary;
+      font-size: 0.875rem;
+      line-height: 29px;
+      font-weight: normal;
+
+      &::placeholder {
+        color: colors.$color-primary;
+        font-family: typography.$font-secondary;
+        font-weight: normal;
+      }
+    }
+
+    app-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 330px;
+    }
+  }
+
+  @include breakpoints.tablet {
+    .title {
+      width: 100%;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+    }
+
+    .subscribe {
+      .email {
+        margin-bottom: 40px;
+      }
+
+      app-button {
+        position: static;
+      }
+    }
+  }
+
+  @include breakpoints.new(715px) {
+    padding: 14% 12%;
+
+    .title {
+      font-size: 3.15rem;
+      width: 100%;
+    }
+
+    .subtitle {
+      margin-bottom: 35px;
+    }
+  }
+
+  @include breakpoints.new(600px) {
+    padding: 15% 10%;
+
+    .title {
+      font-size: 2.7rem;
+    }
+  }
+
+  @include breakpoints.mobile {
+    .subscribe > .email {
+      &::placeholder {
+        text-align: center;
+      }
+
+      &:focus::placeholder {
+        text-align: left;
+      }
+    }
+  }
+}
