@@ -1,0 +1,36 @@
+<main class="addresses">
+  <h1 class="title">Don't miss a chance <br/> to talk with us</h1>
+  <div class="contacts">
+    <address class="contact">
+      <span class="means">Phone</span>
+      <a href="tel:+41 (078) 205 83 88" class="phone">+41 (078) 205 83 88</a>
+      <span class="delimiter">or</span>
+      <app-button
+      variant="decorative-alternative"
+      theme="dark"
+      text="Call me back"
+      ></app-button>
+    </address>
+    <address class="contact">
+      <span class="means">Address</span>
+      <p class="address">Via Peri 17, 6900 <br/>Lugano, Switzerland</p>
+      <span class="means">Email</span>
+      <a href="mailto:luxtra.travel@gmail.com" class="email">luxtra.travel@gmail.com</a>
+    </address>
+  </div>
+</main>
+<div class="map">
+  <div class="map-wrapper">
+    <agm-map
+    [latitude]="46.0061291"
+    [longitude]="8.9482662"
+    [zoom]="14"
+    [styles]="styles"
+    >
+      <agm-marker
+      [latitude]="46.0061291"
+      [longitude]="8.9482662"
+      ></agm-marker>
+    </agm-map>
+  </div>
+</div>

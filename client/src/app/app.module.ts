@@ -40,6 +40,7 @@ import { journeyReducer } from './store/journey/journey.reducer';
 import { statsReducer } from './store/stats/stats.reducer';
 import { TripsComponent } from './views/trips/trips.component';
 import { NewslettersComponent } from './components/newsletters/newsletters.component';
+import { ContactComponent } from './views/contact/contact.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { NewslettersComponent } from './components/newsletters/newsletters.compo
     TextAreaComponent,
     RatingInputComponent,
     TripsComponent,
-    NewslettersComponent
+    NewslettersComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@
             <a routerLink="/trips" class="nav-link">Luxury trips</a>
             <a class="nav-link">Book with us</a>
             <a class="nav-link">Why Lux Trips</a>
-            <a class="nav-link">Contact</a>
+            <a routerLink="/contact" class="nav-link">Contact</a>
             <a class="nav-link">Client area</a>
         </nav>
         <div class="header-contact">
@@ -35,11 +35,11 @@
 
 <div class="sidebar" *ngIf="!sidebarClosed && media.isActive('lt-md')" @slide>
     <nav class="sidebar-nav">
-        <a class="nav-link">Home</a>
-        <a class="nav-link">Luxury packages</a>
+        <a routerLink="/" class="nav-link">Home</a>
+        <a routerLink="/trips" class="nav-link">Luxury Trips</a>
         <a class="nav-link">Book with us</a>
         <a class="nav-link">Why Lux Trips</a>
-        <a class="nav-link">Contact</a>
+        <a routerLink="/contact" class="nav-link">Contact</a>
         <a class="nav-link">Client area</a>
     </nav>
 </div>
