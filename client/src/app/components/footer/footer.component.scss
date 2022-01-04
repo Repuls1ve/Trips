@@ -1,0 +1,131 @@
+@use "src/assets/scss/breakpoints";
+@use "src/assets/scss/typography";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -5px;
+  width: 100%;
+  height: 700px;
+  background-image: url("/assets/img/bg-footer.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  padding: 7% 6% 3%;
+
+  .logo {
+    width: 200px;
+    margin-bottom: 135px;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .nav {
+      display: flex;
+      width: 100%;
+      gap: 8%;
+
+      .nav-right,
+      .nav-left {
+        gap: 100px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-right {
+        justify-content: flex-start;
+      }
+
+      .nav-left {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .rights {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    width: 100%;
+
+    small {
+      font-family: typography.$font-secondary;
+      font-size: 0.75rem;
+      font-weight: normal;
+      line-height: 0.875rem;
+      color: white;
+    }
+
+    @include breakpoints.new(600px) {
+      flex-direction: column;
+      align-items: center;
+
+      small {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  @include breakpoints.new(1400px) {
+    height: 550px;
+
+    .logo {
+      margin-bottom: 100px;
+    }
+
+    .nav-container .nav {
+      gap: 6%;
+
+      .nav-right,
+      .nav-left {
+        gap: 60px;
+      }
+    }
+  }
+
+  @include breakpoints.tablet {
+    .logo {
+      margin-bottom: 70px;
+    }
+
+    .nav-container {
+      flex-direction: column;
+
+      .nav {
+        gap: 15%;
+
+        .nav-right,
+        .nav-left {
+          flex-direction: column;
+          align-items: normal;
+          width: 50%;
+          gap: 50px;
+        }
+
+        .nav-right {
+          text-align: left;
+        }
+
+        .nav-left {
+          text-align: right;
+        }
+      }
+
+      app-button {
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  @include breakpoints.new(375px) {
+    .nav-container .nav {
+      gap: 5%;
+    }
+  }
+}

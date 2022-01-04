@@ -1,0 +1,29 @@
+<footer class="footer">
+  <img class="logo" src="/assets/img/logo.svg" alt="logo">
+  <div class="nav-container">
+    <app-button
+    variant="decorative"
+    text="Call me back"
+    *ngIf="media.isActive('lt-md')"
+    ></app-button>
+    <nav class="nav">
+      <div class="nav-left">
+        <a routerLink="/trips" class="nav-link">Luxury Packages</a>
+        <a class="nav-link">Book with us</a>
+      </div>
+      <app-button
+      variant="decorative"
+      text="Call me back"
+      *ngIf="media.isActive('gt-sm')"
+      ></app-button>
+      <div class="nav-right">
+        <a class="nav-link">Why Lux Trips</a>
+        <a routerLink="/contact" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </div>
+  <div class="rights">
+    <small>&copy; 2021 All Rights Reserved | Luxtrips</small>
+    <small>Company Site | Privacy Policy</small>
+  </div>
+</footer>

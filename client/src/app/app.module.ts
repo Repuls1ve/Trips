@@ -41,6 +41,7 @@ import { statsReducer } from './store/stats/stats.reducer';
 import { TripsComponent } from './views/trips/trips.component';
 import { NewslettersComponent } from './components/newsletters/newsletters.component';
 import { ContactComponent } from './views/contact/contact.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { ContactComponent } from './views/contact/contact.component';
     RatingInputComponent,
     TripsComponent,
     NewslettersComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
