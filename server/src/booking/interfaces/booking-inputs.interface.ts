@@ -5,13 +5,9 @@ export interface IBookingInput {
   type: InputType
 }
 
-export interface IDefaultInput {
-  value: string
-} 
+export interface IBookingTextInput extends IBookingInput {}
 
-export interface IBookingTextInput extends IBookingInput, IDefaultInput {}
-
-export interface IBookingTextareaInput extends IBookingInput, IDefaultInput {}
+export interface IBookingTextareaInput extends IBookingInput {}
 
 export interface IBookingSelectInput extends IBookingInput {
   options: IBookingSelectInputOptions
