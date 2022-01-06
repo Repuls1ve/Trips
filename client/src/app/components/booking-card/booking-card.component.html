@@ -1,0 +1,16 @@
+<div class="booking-card">
+  <div class="image">
+    <img [src]="booking.photo.source" [alt]="booking.photo.alt" class="photo">
+    <h2 class="title">{{ booking.name }}</h2>
+  </div>
+  <div class="content">
+    <p class="description">{{ booking.descriptions.short }}</p>
+    <div class="request">
+      <app-button
+      variant="decorative-alternative"
+      theme="dark"
+      text="Make a request"
+      ></app-button>
+    </div>
+  </div>
+</div>

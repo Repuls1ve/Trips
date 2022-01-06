@@ -1,0 +1,64 @@
+@use "src/assets/scss/typography";
+@use "src/assets/scss/breakpoints";
+
+.booking-card {
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+
+  .image {
+    position: relative;
+    height: 30%;
+
+    .photo {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      text-transform: uppercase;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      color: white;
+      letter-spacing: 4%;
+      font-size: 2.75rem;
+      font-weight: normal;
+      text-align: center;
+
+      @include breakpoints.mobile {
+        font-size: 2.25rem;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 40px;
+    padding: 20px 10% 0;
+
+    .description {
+      font-family: typography.$font-secondary;
+      font-weight: normal;
+      font-size: 1.125rem;
+      line-height: 2rem;
+      text-align: center;
+    }
+
+    .request {
+      height: 100px;
+      width: 70%;
+
+      @include breakpoints.new(500px) {
+        width: 100%;
+      }
+    }
+  }
+}
