@@ -1,25 +1,3 @@
-export interface IRatedJourneysQuery {
-  continent: IRatedJourneys['continent']
-  limit?: number
-}
-
-export interface IJourneysQuery {
-  limit?: number
-  offset?: number
-}
-
-export interface IJourneysPackagesQuery {
-  limit?: number
-}
-
-export interface IJourneysError {
-  statusCode: number
-  message: string[]
-  error: string
-}
-
-export type IJourneysPackagesStats = IJourneysPackageStats[]
-
 export interface IJourneysPackageStats {
   package: IJourneyInfo['package']
   photo: IJourneyPhoto

@@ -1,9 +1,11 @@
 import { createAction, props } from '@ngrx/store';
-import { IJourney, IJourneysError, IJourneysQuery } from 'src/app/models/journey.model';
+import { IError } from 'src/app/interfaces/errors.interface';
+import { IPaginationQuery } from 'src/app/interfaces/queries.interface';
+import { IJourney } from 'src/app/models/journey.model';
 
 export const loadJourneys = createAction(
   '[Journeys Page] Load Journeys',
-  props<IJourneysQuery>()
+  props<IPaginationQuery>()
 )
 
 export const loadJourneysSuccess = createAction(
@@ -13,12 +15,12 @@ export const loadJourneysSuccess = createAction(
 
 export const loadJourneysFailure = createAction(
   '[Journeys Page] Load Journeys Failure',
-  props<IJourneysError>()
+  props<IError>()
 )
 
 export const uploadJourneys = createAction(
   '[Journeys Page] Upload Journeys',
-  props<IJourneysQuery>()
+  props<IPaginationQuery>()
 )
 
 export const uploadJourneysSuccess = createAction(
@@ -28,5 +30,5 @@ export const uploadJourneysSuccess = createAction(
 
 export const uploadJourneysFailure = createAction(
   '[Journeys Page] Upload Journeys Failure',
-  props<IJourneysError>()
+  props<IError>()
 )

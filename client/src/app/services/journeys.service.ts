@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AddReviewDto } from '../dtos/add-review.dto';
-import { IJourney, IJourneyReview, IJourneyReviews, IJourneysPackagesQuery, IJourneysPackagesStats, IJourneysQuery, IRatedJourneys, IRatedJourneysQuery, IRatedJourneysStats } from '../models/journey.model';
+import { IJourneysPackagesQuery, IPaginationQuery, IRatedJourneysQuery } from '../interfaces/queries.interface';
+import { IJourney, IJourneyReviews, IJourneysPackageStats, IRatedJourneys, IRatedJourneysStats } from '../models/journey.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class JourneysService {
 
   constructor(private readonly http: HttpClient) {}
 
-  getJourneys(journeysQuery: IJourneysQuery): Observable<IJourney[]> {
+  getJourneys(journeysQuery: IPaginationQuery): Observable<IJourney[]> {
     const { limit, offset } = journeysQuery
     const params = {
       ...offset && { offset },
@@ -35,12 +36,12 @@ export class JourneysService {
     return this.http.get<IRatedJourneysStats>(this.baseUrl + '/journeys/rated/stats')
   }
 
-  getJourneysPackages(journeysPackagesQuery: IJourneysPackagesQuery): Observable<IJourneysPackagesStats> {
+  getJourneysPackages(journeysPackagesQuery: IJourneysPackagesQuery): Observable<IJourneysPackageStats[]> {
     const { limit } = journeysPackagesQuery
     const params = {
       ...limit && { limit }
     }
-    return this.http.get<IJourneysPackagesStats>(this.baseUrl + '/journeys/packages/stats', { params })
+    return this.http.get<IJourneysPackageStats[]>(this.baseUrl + '/journeys/packages/stats', { params })
   }
 
   getJourney(id: IJourney['_id']): Observable<IJourney> {

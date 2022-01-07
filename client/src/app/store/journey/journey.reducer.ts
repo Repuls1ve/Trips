@@ -1,16 +1,17 @@
 import { createReducer, on } from '@ngrx/store'
-import { IJourney, IJourneysError } from 'src/app/models/journey.model'
+import { IError } from 'src/app/interfaces/errors.interface'
+import { IJourney } from 'src/app/models/journey.model'
 import { status } from '../journeys/journeys.reducer'
 import { addReview, addReviewFailure, addReviewSuccess, loadJourney, loadJourneyFailure, loadJourneySuccess } from './journey.actions'
 
 export interface JourneyState {
   journey: {
     data: IJourney
-    error: IJourneysError | null
+    error: IError | null
     status: status
   }
   review: {
-    error: IJourneysError | null
+    error: IError | null
     status: status
   }
 }

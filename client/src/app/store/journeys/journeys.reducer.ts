@@ -1,5 +1,6 @@
 import { createReducer, on } from '@ngrx/store'
-import { IJourney, IJourneysError } from 'src/app/models/journey.model'
+import { IError } from 'src/app/interfaces/errors.interface'
+import { IJourney } from 'src/app/models/journey.model'
 import { loadJourneys, loadJourneysFailure, loadJourneysSuccess, uploadJourneys, uploadJourneysFailure, uploadJourneysSuccess } from './journeys.actions'
 
 export type status = 'pending' | 'loading' | 'error' | 'success'
@@ -7,7 +8,7 @@ export type status = 'pending' | 'loading' | 'error' | 'success'
 export interface JourneysState {
   journeys: {
     data: IJourney[]
-    error: IJourneysError | null
+    error: IError | null
     status: status
   }
 }

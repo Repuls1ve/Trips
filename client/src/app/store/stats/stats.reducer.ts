@@ -1,22 +1,23 @@
 import { createReducer, on } from '@ngrx/store'
-import { IJourneysError, IJourneysPackagesStats, IRatedJourneys, IRatedJourneysStats } from 'src/app/models/journey.model'
+import { IError } from 'src/app/interfaces/errors.interface'
+import { IJourneysPackageStats, IRatedJourneys, IRatedJourneysStats } from 'src/app/models/journey.model'
 import { status } from '../journeys/journeys.reducer'
 import { loadJourneysPackages, loadJourneysPackagesFailure, loadJourneysPackagesSuccess, loadJourneysStats, loadJourneysStatsFailure, loadJourneysStatsSuccess, loadRatedJourneys, loadRatedJourneysFailure, loadRatedJourneysSuccess } from './stats.actions'
 
 export interface StatsState {
   stats: {
     data: IRatedJourneysStats
-    error: IJourneysError | null
+    error: IError | null
     status: status
   }
   rated: {
     data: IRatedJourneys[]
-    error: IJourneysError | null
+    error: IError | null
     status: status
   }
   packages: {
-    data: IJourneysPackagesStats,
-    error: IJourneysError | null,
+    data: IJourneysPackageStats[],
+    error: IError | null,
     status: status
   } 
 }
@@ -33,7 +34,7 @@ const initialState: StatsState = {
     status: 'pending'
   },
   packages: {
-    data: [] as IJourneysPackagesStats,
+    data: [] as IJourneysPackageStats[],
     error: null,
     status: 'pending'
   }
