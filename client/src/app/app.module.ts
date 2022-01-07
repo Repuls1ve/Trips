@@ -42,6 +42,10 @@ import { TripsComponent } from './views/trips/trips.component';
 import { NewslettersComponent } from './components/newsletters/newsletters.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BookingComponent } from './views/booking/booking.component';
+import { BookingCardComponent } from './components/booking-card/booking-card.component';
+import { bookingReducer } from './store/booking/booking.reducer';
+import { BookingEffects } from './store/booking/booking.effects';
 
 
 @NgModule({
@@ -68,7 +72,9 @@ import { FooterComponent } from './components/footer/footer.component';
     TripsComponent,
     NewslettersComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    BookingComponent,
+    BookingCardComponent
   ],
   imports: [
     BrowserModule,
@@ -83,13 +89,19 @@ import { FooterComponent } from './components/footer/footer.component';
     StoreModule.forRoot({
       [Features.Journeys]: journeysReducer,
       [Features.Journey]: journeyReducer,
+      [Features.Booking]: bookingReducer,
       [Features.Stats]: statsReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([JourneysEffects, JourneyEffects, StatsEffects]),
+    EffectsModule.forRoot([
+      JourneysEffects,
+      JourneyEffects,
+      BookingEffects,
+      StatsEffects
+    ]),
     HttpClientModule
   ],
   providers: [],
