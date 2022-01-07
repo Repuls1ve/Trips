@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { PaginationQueryDto } from 'src/common/dtos/pagination-query.dto';
 import { BookingService } from './booking.service';
 import { AddBookingDto } from './dtos/add-booking.dto';
+import { IBookingPreview } from './interfaces/booking.interface';
 import { BookingDocument } from './schemas/booking.schema';
 
 @Controller('booking')
@@ -10,7 +11,7 @@ export class BookingController {
   constructor(private readonly booking: BookingService) {}
 
   @Get()
-  getBookings(@Query() paginationQuery: PaginationQueryDto): Observable<BookingDocument[]> {
+  getBookings(@Query() paginationQuery: PaginationQueryDto): Observable<IBookingPreview[]> {
     return this.booking.getBookings(paginationQuery)
   }
 

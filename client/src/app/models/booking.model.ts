@@ -1,4 +1,5 @@
 export interface IBooking {
+  _id: string
   name: string
   photo: IBookingPhoto
   descriptions: IBookingDescriptions
@@ -21,7 +22,7 @@ export interface IBookingAdvantage {
   icon: IBookingPhoto 
 }
 
-export type IBookingPreview = Pick<IBooking, 'name' | 'photo' | 'descriptions'>
+export type IBookingPreview = Pick<IBooking, '_id' | 'name' | 'photo' | 'descriptions'>
 
 export type InputType = 'select' | 'range' | 'radio' | 'text' | 'textarea'
 
