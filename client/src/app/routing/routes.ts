@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { BookingComponent } from '../views/booking/booking.component';
 import { ContactComponent } from '../views/contact/contact.component';
 import { HomeComponent } from '../views/home/home.component';
 import { JourneyComponent } from '../views/journey/journey.component';
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'trips',
     component: TripsComponent
+  },
+  {
+    path: 'booking',
+    component: BookingComponent
   },
   {
     path: 'contact',
