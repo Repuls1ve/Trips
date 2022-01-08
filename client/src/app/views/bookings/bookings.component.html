@@ -1,0 +1,11 @@
+<div class="heading">
+  <h1 class="title">Book with us</h1>
+</div>
+<main class="bookings" *ngIf="bookings$ | async as bookings">
+  <div class="booking" *ngFor="let booking of bookings.data">
+    <app-booking-card
+    [booking]="booking"
+    (onClick)="onBookingClick(booking)"
+    ></app-booking-card>
+  </div>
+</main>
