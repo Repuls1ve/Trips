@@ -1,37 +1,71 @@
 <ng-container *ngIf="booking$ | async as booking">
   <div class="heading">
-    <h1 class="title">Book {{ booking.data.name }}</h1>
+    <h1 class="title">Book {{ booking.data.name || name }}</h1>
   </div>
   <main class="booking">
-    <div class="information">
-      <img
-      class="photo"
-      [src]="booking.data.photo.source"
-      [alt]="booking.data.photo.alt"
-      >
-      <div class="descriptions">
-        <h2 class="short">{{ booking.data.descriptions.short }}</h2>
-        <p
-        *ngFor="let description of booking.data.descriptions.detailed"
-        class="detailed"
-        >{{ description }}</p>
-      </div>
-      <div class="advantages">
-        <div
-        *ngFor="let advantage of booking.data.advantages"
-        class="advantage"
+    <ng-container *ngIf="booking.status == 'success'; else infoLoader">
+      <div class="information">
+        <img
+        class="photo"
+        [src]="booking.data.photo.source"
+        [alt]="booking.data.photo.alt"
         >
-          <img
-          class="icon"
-          [src]="advantage.icon.source"
-          [alt]="advantage.icon.alt"
+        <div class="descriptions">
+          <h2 class="short">{{ booking.data.descriptions.short }}</h2>
+          <p
+          *ngFor="let description of booking.data.descriptions.detailed"
+          class="detailed"
+          >{{ description }}</p>
+        </div>
+        <div class="advantages">
+          <div
+          *ngFor="let advantage of booking.data.advantages"
+          class="advantage"
           >
-          <h3 class="title">{{ advantage.title }}</h3>
+            <img
+            class="icon"
+            [src]="advantage.icon.source"
+            [alt]="advantage.icon.alt"
+            >
+            <h3 class="title">{{ advantage.title }}</h3>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
     <form action="" class="form">
       
     </form>
+    <ng-template #infoLoader>
+      <div class="information">
+        <ngx-skeleton-loader
+        [theme]="{
+          'height': '200px',
+          'border-radius': '10px'
+        }"
+        ></ngx-skeleton-loader>
+        <div class="descriptions">
+          <ngx-skeleton-loader
+          [count]="2"
+          ></ngx-skeleton-loader>
+          <ngx-skeleton-loader [count]="2"></ngx-skeleton-loader>
+          <ngx-skeleton-loader [count]="5"></ngx-skeleton-loader>
+        </div>
+        <div class="advantages">
+          <div
+          *ngFor="let advantage of [].constructor(5)"
+          class="advantage"
+          >
+            <ngx-skeleton-loader
+            appearance="circle"
+            [theme]="{
+              'width': '50px',
+              'height': '50px'
+            }"
+            ></ngx-skeleton-loader>
+            <ngx-skeleton-loader class="title-loader"></ngx-skeleton-loader>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </main>
 </ng-container>

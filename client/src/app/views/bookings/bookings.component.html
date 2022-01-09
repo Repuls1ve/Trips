@@ -2,10 +2,23 @@
   <h1 class="title">Book with us</h1>
 </div>
 <main class="bookings" *ngIf="bookings$ | async as bookings">
-  <div class="booking" *ngFor="let booking of bookings.data">
-    <app-booking-card
-    [booking]="booking"
-    (onClick)="onBookingClick(booking)"
-    ></app-booking-card>
-  </div>
+  <ng-container *ngIf="bookings.status == 'success'; else loader">
+    <div class="booking" *ngFor="let booking of bookings.data">
+      <app-booking-card
+      [booking]="booking"
+      (onClick)="onBookingClick(booking)"
+      ></app-booking-card>
+    </div>
+  </ng-container>
+  <ng-template #loader>
+    <div class="booking" *ngFor="let loader of [].constructor(6)">
+      <ngx-skeleton-loader
+      [theme]="{
+        'height': '430px',
+        'border-radius': '20px',
+        'background-color': '#fae1dc'
+      }"
+      ></ngx-skeleton-loader>
+    </div>
+  </ng-template>
 </main>

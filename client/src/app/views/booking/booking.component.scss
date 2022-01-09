@@ -70,7 +70,7 @@
       .advantage {
         display: flex;
         align-items: center;
-        gap: 40px;
+        gap: 35px;
 
         .icon {
           width: 50px;
@@ -81,6 +81,11 @@
           font-weight: normal;
           font-size: 1.125rem;
           color: black;
+        }
+
+        .title-loader {
+          width: 100%;
+          margin-top: 10px;
         }
       }
     }
