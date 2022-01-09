@@ -1,10 +1,37 @@
-<div class="heading">
-  <h1 class="title">Book with us</h1>
-</div>
-<main class="bookings" *ngIf="bookings$ | async as bookings">
-  <div class="booking" *ngFor="let booking of bookings.data">
-    <app-booking-card
-    [booking]="booking"
-    ></app-booking-card>
+<ng-container *ngIf="booking$ | async as booking">
+  <div class="heading">
+    <h1 class="title">Book {{ booking.data.name }}</h1>
   </div>
-</main>
+  <main class="booking">
+    <div class="information">
+      <img
+      class="photo"
+      [src]="booking.data.photo.source"
+      [alt]="booking.data.photo.alt"
+      >
+      <div class="descriptions">
+        <h2 class="short">{{ booking.data.descriptions.short }}</h2>
+        <p
+        *ngFor="let description of booking.data.descriptions.detailed"
+        class="detailed"
+        >{{ description }}</p>
+      </div>
+      <div class="advantages">
+        <div
+        *ngFor="let advantage of booking.data.advantages"
+        class="advantage"
+        >
+          <img
+          class="icon"
+          [src]="advantage.icon.source"
+          [alt]="advantage.icon.alt"
+          >
+          <h3 class="title">{{ advantage.title }}</h3>
+        </div>
+      </div>
+    </div>
+    <form action="" class="form">
+      
+    </form>
+  </main>
+</ng-container>

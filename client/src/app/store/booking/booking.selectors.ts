@@ -8,3 +8,8 @@ export const selectBookings = createSelector(
   bookingFeature,
   (state: BookingState) => state.bookings
 )
+
+export const selectBooking = createSelector(
+  bookingFeature,
+  (state: BookingState) => state.booking
+)

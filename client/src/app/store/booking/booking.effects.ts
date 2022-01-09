@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { BookingService } from 'src/app/services/booking.service';
-import { loadBookings, loadBookingsFailure, loadBookingsSuccess } from './booking.actions';
+import { loadBooking, loadBookingFailure, loadBookings, loadBookingsFailure, loadBookingsSuccess, loadBookingSuccess } from './booking.actions';
 
 @Injectable()
 export class BookingEffects {
@@ -16,6 +16,14 @@ export class BookingEffects {
     switchMap(payload => this.booking.getBookings(payload).pipe(
       map(bookings => loadBookingsSuccess({data: bookings})),
       catchError(error => of(loadBookingsFailure(error)))
+    ))
+  ))
+
+  loadBooking$ = createEffect(() => this.actions$.pipe(
+    ofType(loadBooking),
+    switchMap(payload => this.booking.getBooking(payload).pipe(
+      map(booking => loadBookingSuccess(booking)),
+      catchError(error => of(loadBookingFailure(error)))
     ))
   ))
 }
